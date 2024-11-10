@@ -1,0 +1,17 @@
+{% extends "movies/layout.html" %} 
+
+{% block title %} 
+    MovieStore 
+{% endblock %} 
+
+
+{% block body %}    
+    <h2>MovieStore</h2>
+    <ul>
+        {% for movy in items  %}   
+            
+            <li>  {{movy}} </li>
+        {% endfor %}
+
+    </ul>    
+{% endblock %}
