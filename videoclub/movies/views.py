@@ -8,15 +8,20 @@ movies=["El señor de lls anillos",
         "Pulgarcito",
         "Harry Potter",
         "Karate Kid" ]
+directores=[]
+
+generos=[]
+
+lista=[]
 
 def index(request):
     return render(request, "movies/index.html", { "items" : movies})
 
-def director():
-    return
+def director(request):
+    return render(request, "movies/director.html", {"director": directores} )
 
-def genero():
-    return
+def genero(request):
+    return render(request, "movies/genero.html", {"genero": generos})
 
-def lista():
-    return
+def lista(request):
+    return render(request, "movies/lista.html",{"lista": lista})
