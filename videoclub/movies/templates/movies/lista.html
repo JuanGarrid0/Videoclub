@@ -7,7 +7,7 @@
     <ul>
         {% for entry in lista  %}   
             
-            <li> <a> {{entry}}</a> </li>
+            <li> <a href="{% url 'detalles' %}"> {{entry}}</a> </li>
         {% endfor %}
 
     </ul>    
