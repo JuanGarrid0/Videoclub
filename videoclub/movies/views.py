@@ -10,23 +10,41 @@ movies=["El señor de lls anillos",
         "Pulgarcito",
         "Harry Potter",
         "Karate Kid" ]
-directores=[]
 
-generos=["generos"]
 
-list=["lista de movies"]
 
 def index(request):
     return render(request, "movies/index.html", { "items" : movies})
 
 def director(request):
+    
+    return render(request, "movies/director.html", {"director": getDirectores()} )
+
+def genero(request):
+    return render(request, "movies/genero.html", {"genero": getGeneros()})
+
+def lista(request):
+    return render(request, "movies/lista.html",{"lista": getLista()})
+
+
+def getDirectores():
+    directores=[]
     di=Director.objects.all()
     for item in di:
         directores.append(item.nombre +" "+item.apellido)
-    return render(request, "movies/director.html", {"director": directores} )
+    return directores
 
-def genero(request):
-    return render(request, "movies/genero.html", {"genero": generos})
+def getGeneros():
+    generos=[]
+    g=Movie.objects.all()
+    for item in g:
+        if (item.genero not in generos):
+         generos.append(item.genero)
+    return generos
 
-def lista(request):
-    return render(request, "movies/lista.html",{"lista": list})
+def getLista():
+    lista=[]
+    l=Movie.objects.all()
+    for item in l:
+        lista.append(item.nombre)
+    return lista  

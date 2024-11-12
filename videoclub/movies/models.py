@@ -7,7 +7,7 @@ class Director(models.Model):
     apellido=models.CharField(max_length=30)
 
 class Movie (models.Model):
-    movies= models.TextChoices("Pelicula", "Serie")
+    movies= (("Pelicula", "Pelicula"), ("Serie", "Serie"))
     genero = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
     directores = models.ManyToManyField(Director)
