@@ -59,12 +59,3 @@ def listaMainPage():
           genero.append(item.genero)
     return main
 
-def listaMainPage():
-    main=[]
-    genero=[]
-    m=Movie.objects.all()
-    for item in m:
-        if (item.genero not in genero ):
-          main.append(item.nombre)
-          genero.append(item.genero)
-    return main
