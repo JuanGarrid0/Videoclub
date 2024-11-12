@@ -14,7 +14,7 @@ movies=["El señor de lls anillos",
 
 
 def index(request):
-    return render(request, "movies/index.html", { "items" : movies})
+    return render(request, "movies/index.html", { "items" : listaMainPage()})
 
 def director(request):
     
@@ -48,3 +48,13 @@ def getLista():
     for item in l:
         lista.append(item.nombre)
     return lista  
+
+def listaMainPage():
+    main=[]
+    genero=[]
+    m=Movie.objects.all()
+    for item in m:
+        if (item.genero not in genero ):
+          main.append(item.nombre)
+          genero.append(item.genero)
+    return main
