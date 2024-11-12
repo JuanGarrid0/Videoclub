@@ -5,14 +5,6 @@ from .models import Director, Movie
 
 # Create your views here.
 
-movies=["El señor de lls anillos",
-        "Juego de Tronos",
-        "Pulgarcito",
-        "Harry Potter",
-        "Karate Kid" ]
-
-
-
 def index(request):
     return render(request, "movies/index.html", { "items" : listaMainPage()})
 
@@ -25,6 +17,10 @@ def genero(request):
 
 def lista(request):
     return render(request, "movies/lista.html",{"lista": getLista()})
+
+def detalles(request):
+    return render(request, "movies/detalles.html", {"detalles": "detalle"})
+
 
 
 def getDirectores():
