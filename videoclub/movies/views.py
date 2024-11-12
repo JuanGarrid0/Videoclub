@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .models import Director, Movie
 
 # Create your views here.
-
+#Prueba
 def index(request):
     return render(request, "movies/index.html", { "items" : listaMainPage()})
 
