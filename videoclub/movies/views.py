@@ -21,38 +21,20 @@ def lista(request):
 
 def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
     #return HttpResponse(f"Hola{nombre}")
+    if(tipo=="director"):#lista de peliculas 
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre": nombre     })
     
+    elif(tipo=="genero"):#lista de peliculas
+        peli=Movie.objects.values('nombre').filter(genero=nombre)
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre":peli      })
 
-    return render(request, "movies/detalles.html", { "t":  tipo , "nombre":nombre      })
+    elif(tipo=="lista"):#atributos de la pelicula
+        peli=Movie.objects.values().get(nombre=nombre)
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre":peli      })
 
 
 
 
-def detallesDir(input):
-    a=[]
-    listaDir=Movie.objects.all()
-    nombreDirector=input.split(" ")
-    for d in listaDir:
-        if(nombreDirector==d.nombre):
-             a.append(d)
-    return a
-        
-
-def detallesGen(input):
-    a=[]
-    listaGen=getGeneros()
-    for g in listaGen:
-        if(input==g):
-            a.append(g) 
-    return a
-
-def detallesMov(input):
-    a=[]
-    listaMov=Movie.objects.all()
-    for m in listaMov:
-        if(input==m.nombre):
-            a.append(m) 
-    return a
 
 
 def getDirectores():

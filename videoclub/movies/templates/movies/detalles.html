@@ -6,15 +6,23 @@
 {% block body %}    
 
 
-    {% if t == 'director' %}
-        <p>Director</p>
+    {% if tipo == 'director' %}
+        <h3>Director</h3>
+        <p>{{nombre}}</p>
+        
 
-    {% elif t == 'genero' %}
+    {% elif tipo == 'genero' %}
         <p>Genero</p>
-
-    {% elif t == 'lista' %}
+        <p>{{nombre}}</p>
+        {% for item in peli  %}   
+            <li>  {{item}} </li>
+        {% endfor %}
+    {% elif tipo == 'lista' %}
         <p>lista</p>
-
+        <p>{{nombre}}</p>
+        {% for item in peli  %}   
+            <li>  {{item}} </li>
+        {% endfor %}
     {%endif%}
 
 
