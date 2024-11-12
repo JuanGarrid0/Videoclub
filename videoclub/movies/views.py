@@ -19,31 +19,40 @@ def lista(request):
     return render(request, "movies/lista.html",{"lista": getLista()})
 
 
-def detalles(request, nombre):  #detalles pelicula, genero y director
-    return HttpResponse(f"Hola{nombre}")
+def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
+    #return HttpResponse(f"Hola{nombre}")
+    
+
+    return render(request, "movies/detalles.html", { "t":  tipo , "nombre":nombre      })
 
 
 
 
 def detallesDir(input):
-    listaDir=Director.objects.all()
+    a=[]
+    listaDir=Movie.objects.all()
     nombreDirector=input.split(" ")
     for d in listaDir:
         if(nombreDirector==d.nombre):
-            return d
+             a.append(d)
+    return a
         
 
 def detallesGen(input):
+    a=[]
     listaGen=getGeneros()
     for g in listaGen:
         if(input==g):
-            return g
+            a.append(g) 
+    return a
 
 def detallesMov(input):
+    a=[]
     listaMov=Movie.objects.all()
     for m in listaMov:
         if(input==m.nombre):
-            return m
+            a.append(m) 
+    return a
 
 
 def getDirectores():
