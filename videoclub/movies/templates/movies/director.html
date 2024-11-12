@@ -7,7 +7,7 @@
     <ul>
         {% for entry in director  %}   
             
-            <li><a href="{% url 'detalles' %}">  {{entry}} </a></li>
+            <li><a href="{% url 'detalles' nombre=entry %}">  {{entry}} </a></li>
         {% endfor %}
 
     </ul>    

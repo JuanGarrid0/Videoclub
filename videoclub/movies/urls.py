@@ -7,6 +7,6 @@ urlpatterns = [
     path('director', views.director, name="director"),
     path('genero', views.genero, name="genero"),
     path('lista', views.lista, name="lista"),
-    path('detalles',views.detalles, name="detalles"),
+    path('<str:nombre>/',views.detalles, name="detalles"),
 
 ]
