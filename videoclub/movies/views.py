@@ -28,9 +28,28 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
         return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre": peli     })
     
     elif(tipo=="genero"):#lista de peliculas
-        peli=Movie.objects.values('nombre').filter(genero=nombre)
-        p=list(peli.values('genero', 'nombre', 'tipoMovie','directores'))
-        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":p      })
+        peli=Movie.objects.values('nombre').filter(genero=nombre)#devulve queryset de pelis nombre
+        a=[]
+        for item in peli: #pelis de una en una
+            unidadPeli=Movie.objects.get(nombre=item['nombre'])#movie object
+            print(unidadPeli)
+            dirPelis=""
+            counter=0
+            for d in unidadPeli.directores.all():
+                if(unidadPeli.directores.all().count()-1 > counter):
+                    dirPelis= d.nombre+" "+d.apellido+" ,"
+                    counter= counter+1
+                else:
+                    dirPelis= d.nombre+" "+d.apellido+" "
+            p=[unidadPeli.nombre, 
+           unidadPeli.genero, 
+           unidadPeli.tipoMovie,
+           dirPelis
+            ]
+            a.append(p)
+
+
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":a      })
 
     elif(tipo=="lista"):#atributos de la pelicula
         pelis=Movie.objects.get(nombre=nombre)
@@ -47,8 +66,6 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
            pelis.tipoMovie,
            directoresPelis
         ]
-        print(pelis)
-        print(p)
         return render(request, "movies/detalles.html", { "tipo":  tipo , "peli": p      })
 
 
