@@ -15,16 +15,14 @@
 
 
     {% elif tipo == 'genero' %}
-        <p>Genero</p>
-        <p>{{nombre}}</p>
+        <p>Genero de {{genero}}</p>
         {% for item in peli  %}   
-            <li>  {{item.0}},  {{item.1}},  {{item.2}},  {{item.3}}</li>
+            <li> NOMBRE {{item.0}}, GENERO {{item.1}}, TIPO {{item.2}}, DIRECTORES {{item.3}}</li>
         {% endfor %}
 
 
     {% elif tipo == 'lista' %}
-        <p>lista</p>
-        <p>{{nombre}}</p>
+        <p>Informacion de {{nombre}}</p>
         {% for item in peli  %}  
            <li>  {{item}} </li>
 

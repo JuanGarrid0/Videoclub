@@ -40,17 +40,17 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
             counter=0
             for d in unidadPeli.directores.all():
                 if(unidadPeli.directores.all().count()-1 > counter):
-                    dirPelis= d.nombre+" "+d.apellido+" ,"
+                    dirPelis= dirPelis +d.nombre+" "+d.apellido+" ,"
                     counter= counter+1
                 else:
-                    dirPelis= d.nombre+" "+d.apellido+" "
+                    dirPelis= dirPelis+ d.nombre+" "+d.apellido
             p=[unidadPeli.nombre, 
            unidadPeli.genero, 
            unidadPeli.tipoMovie,
            dirPelis
             ]
             a.append(p)
-        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":a      })
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":a , "genero":nombre   })
 
     elif(tipo=="lista"):#atributos de la pelicula
         pelis=Movie.objects.get(nombre=nombre)
@@ -58,16 +58,16 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
         counter=0
         for d in pelis.directores.all():
             if(pelis.directores.all().count()-1 > counter):
-                directoresPelis= d.nombre+" "+d.apellido+" ,"
+                directoresPelis= directoresPelis +d.nombre+" "+d.apellido+" ,"
                 counter= counter+1
             else:
-                directoresPelis= d.nombre+" "+d.apellido+" "
+                directoresPelis= directoresPelis+ d.nombre+" "+d.apellido
         p=[pelis.nombre, 
            pelis.genero, 
            pelis.tipoMovie,
            directoresPelis
         ]
-        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli": p      })
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli": p , "nombre":nombre     })
 
 
 
