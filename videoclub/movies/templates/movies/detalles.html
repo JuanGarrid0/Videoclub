@@ -9,8 +9,9 @@
     {% if tipo == 'director' %}
         <h3>Director</h3>
         <p>{{nombre}}</p>
-        
-
+        {% for item in peli  %}   
+            <li>  {{item}} </li>
+        {% endfor %}
     {% elif tipo == 'genero' %}
         <p>Genero</p>
         <p>{{nombre}}</p>
@@ -20,8 +21,9 @@
     {% elif tipo == 'lista' %}
         <p>lista</p>
         <p>{{nombre}}</p>
-        {% for item in peli  %}   
-            <li>  {{item}} </li>
+        {% for item in peli  %}  
+           <li>  {{item}} </li>
+
         {% endfor %}
     {%endif%}
 

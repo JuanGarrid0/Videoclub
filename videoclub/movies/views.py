@@ -22,15 +22,18 @@ def lista(request):
 def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
     #return HttpResponse(f"Hola{nombre}")
     if(tipo=="director"):#lista de peliculas 
+
         return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre": nombre     })
     
     elif(tipo=="genero"):#lista de peliculas
         peli=Movie.objects.values('nombre').filter(genero=nombre)
-        return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre":peli      })
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":peli      })
 
     elif(tipo=="lista"):#atributos de la pelicula
-        peli=Movie.objects.values().get(nombre=nombre)
-        return render(request, "movies/detalles.html", { "tipo":  tipo , "nombre":peli      })
+        pelis=Movie.objects.values().get(nombre=nombre)
+        p = list(pelis.values())
+
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli": p      })
 
 
 
