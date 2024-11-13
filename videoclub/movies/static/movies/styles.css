@@ -1,1 +1,53 @@
-body{background-image: url("images/cine.jpg");background-size: cover;}
+body{
+    background-image: url("images/cine.jpg");background-size: cover;
+}
+
+/* Código de modificación de 'lista' */
+#peliculas {
+    text-align: center;
+}
+
+#peliculas h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 20px;
+    background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
+}
+
+#peliculas p {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+#peliculas #lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#peliculas #pelicula{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 180px;
+    height: 200px; /* Se puede agregar una imagen con la portada de la película o dejar únicamente el texto */
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+#peliculas #pelicula:hover {
+    transform: scale(1.1);
+}
+
+#peliculas #pelicula a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+}
+
+/* Fin del código de 'lista' */

@@ -3,12 +3,14 @@
 {% block title %} MovieStore {% endblock %} 
 
 
-{% block body %}    
-    <ul>
-        {% for entry in lista  %}   
-            
-            <li> <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> {{entry}}</a> </li>
-        {% endfor %}
-
-    </ul>    
+{% block body %}   
+    <div id = "peliculas"> <!-- Para modificar únicamente esta parte en el 'styles.css' -->
+        <h2><strong>Lista de Películas</strong></h2>
+        <p>Explora todas nuestras películas</p>
+        <div id = "lista">
+            {% for entry in lista  %}   
+                <p id = "pelicula"> <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> {{entry}}</a></p>
+            {% endfor %} 
+        </div>
+    </div>   
 {%endblock%}
