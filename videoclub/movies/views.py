@@ -18,8 +18,59 @@ def genero(request):
 def lista(request):
     return render(request, "movies/lista.html",{"lista": getLista()})
 
-def detalles(request):
-    return render(request, "movies/detalles.html", {"detalles": "detalle"})
+
+def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
+    #return HttpResponse(f"Hola{nombre}")
+    if(tipo=="director"):#lista de peliculas 
+        name=nombre.split(" ")
+        d=Director.objects.get(nombre=name[0], apellido=name[1])
+        peli=Movie.objects.values('nombre').filter(directores=d)
+        pelis=[]
+        for item in peli:
+         pelis.append(item.get('nombre'))
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "pelis": pelis, "nombre":nombre     })
+    
+    elif(tipo=="genero"):#lista de peliculas
+        peli=Movie.objects.values('nombre').filter(genero=nombre)#devulve queryset de pelis nombre
+        a=[]
+        for item in peli: #pelis de una en una
+            unidadPeli=Movie.objects.get(nombre=item['nombre'])#movie object
+            print(unidadPeli)
+            dirPelis=""
+            counter=0
+            for d in unidadPeli.directores.all():
+                if(unidadPeli.directores.all().count()-1 > counter):
+                    dirPelis= dirPelis +d.nombre+" "+d.apellido+" ,"
+                    counter= counter+1
+                else:
+                    dirPelis= dirPelis+ d.nombre+" "+d.apellido
+            p=[unidadPeli.nombre, 
+           unidadPeli.genero, 
+           unidadPeli.tipoMovie,
+           dirPelis
+            ]
+            a.append(p)
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli":a , "genero":nombre   })
+
+    elif(tipo=="lista"):#atributos de la pelicula
+        pelis=Movie.objects.get(nombre=nombre)
+        directoresPelis=""
+        counter=0
+        for d in pelis.directores.all():
+            if(pelis.directores.all().count()-1 > counter):
+                directoresPelis= directoresPelis +d.nombre+" "+d.apellido+" ,"
+                counter= counter+1
+            else:
+                directoresPelis= directoresPelis+ d.nombre+" "+d.apellido
+        p=[pelis.nombre, 
+           pelis.genero, 
+           pelis.tipoMovie,
+           directoresPelis
+        ]
+        return render(request, "movies/detalles.html", { "tipo":  tipo , "peli": p , "nombre":nombre     })
+
+
+
 
 
 

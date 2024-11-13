@@ -6,6 +6,28 @@
 {% block body %}    
 
 
+    {% if tipo == 'director' %}
+        <h3>Director</h3>
+        <p>{{nombre}}</p>
+        {% for item in pelis  %}   
+            <li>  {{item}} </li>
+        {% endfor %}
+
+
+    {% elif tipo == 'genero' %}
+        <p>Genero de {{genero}}</p>
+        {% for item in peli  %}   
+            <li> NOMBRE {{item.0}}, GENERO {{item.1}}, TIPO {{item.2}}, DIRECTORES {{item.3}}</li>
+        {% endfor %}
+
+
+    {% elif tipo == 'lista' %}
+        <p>Informacion de {{nombre}}</p>
+        {% for item in peli  %}  
+           <li>  {{item}} </li>
+
+        {% endfor %}
+    {%endif%}
 
 
 {%endblock%}
