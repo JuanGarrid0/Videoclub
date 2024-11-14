@@ -31,6 +31,7 @@ body{
     color: #333;
     font-size: 2.5em;
     margin-top: 0px;
+    padding: 4px;
     background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
 }
 
@@ -47,6 +48,9 @@ body{
     gap: 15px;
     background-color: rgba(0, 0, 0, 0.15);
     padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 
 #peliculas #pelicula{
