@@ -13,11 +13,12 @@ body{
 #indice a {
     color: white;
     font-size: 16px;
+    text-decoration: none;
     transition: color 0.2s;
 }
 
 #indice a:hover {
-    color: yellow;
+    color: darkblue;
 }
 
 /* Código de modificación de 'lista' */
@@ -54,11 +55,12 @@ body{
     height: 200px; /* Se puede agregar una imagen con la portada de la película o dejar únicamente el texto */
     margin: 10px;
     padding: 15px;
-    transition: transform 0.2s;
+    transition: transform 0.2s, border 0.2s;
 }
 
 #peliculas #pelicula:hover {
     transform: scale(1.1);
+    border: 3px solid darkblue;
 }
 
 #peliculas #pelicula a{
