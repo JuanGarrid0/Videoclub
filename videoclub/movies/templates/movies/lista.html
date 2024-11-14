@@ -9,7 +9,7 @@
         <p>Explora todas nuestras películas</p>
         <div id = "lista">
             {% for entry in lista  %}   
-                <p id = "pelicula"> <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> {{entry}}</a></p>
+                <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> <p id = "pelicula"> {{entry}}</p></a>
             {% endfor %} 
         </div>
     </div>   

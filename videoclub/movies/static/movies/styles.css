@@ -37,8 +37,7 @@ body{
 #peliculas p:first-of-type {
     color: #666;
     font-size: 1.1em;
-    margin-bottom: 20px;
-    background: radial-gradient(circle, rgb(248, 248, 248) 10%, rgba(221, 221, 221, 0) 50%);
+    background: radial-gradient(circle, rgb(236, 236, 236) 10%, rgba(221, 221, 221, 0) 50%);
 }
 
 #peliculas #lista {
@@ -46,6 +45,8 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 10px;
 }
 
 #peliculas #pelicula{
@@ -64,7 +65,7 @@ body{
     border: 3px solid darkblue;
 }
 
-#peliculas #pelicula a{
+#peliculas a{
     text-decoration: none;
     color: #333;
     font-weight: bold;
