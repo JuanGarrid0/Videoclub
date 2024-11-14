@@ -1,6 +1,7 @@
 body{
     background-image: url("images/cine.jpg");background-size: cover;
 }
+
 /* Código de modificación del índice */
 #indice {
     display: flex;
