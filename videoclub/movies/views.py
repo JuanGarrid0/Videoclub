@@ -110,12 +110,14 @@ def listaMainPage():
 #Busqueda por nombre de director
 def buscarDirector(request):
     query = request.GET.get('q')
+    dir=[]
     if query:
         # Busca en directores
         directores = Director.objects.filter(Q(nombre__icontains=query) | Q(apellido__icontains=query))
     else:
         directores = []
-    
-    return render(request, 'movies/buscarDirector.html', {
-        'directores': directores,
+    for item in directores:
+        dir.append(item.nombre +" "+item.apellido)
+    return render(request, 'movies/director.html', {
+        'director': dir,
     })
