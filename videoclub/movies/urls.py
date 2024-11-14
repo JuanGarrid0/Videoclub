@@ -8,5 +8,6 @@ urlpatterns = [
     path('genero', views.genero, name="genero"),
     path('lista', views.lista, name="lista"),
     path('<str:tipo>/<str:nombre>/',views.detalles, name="detalles"),
+    path('buscarDirector/', views.buscarDirector, name='buscarDirector'),
 
 ]

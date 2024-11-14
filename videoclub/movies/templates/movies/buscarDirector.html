@@ -1,0 +1,28 @@
+<!-- Código para realizar busquedas-->
+{% extends "movies/layout.html" %} 
+
+{% block title %} Resultados de búsqueda {% endblock %} 
+
+{% block body %}
+    <div id="directores">
+        <h2><strong>Lista de Directores para la busqueda "{{ request.GET.q }}"</strong></h2>
+
+        <div id="barraBusqueda">
+            <form action="{% url 'buscarDirector' %}" method="get">
+                <input type="text" name="q" placeholder="Buscar director..." />
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div id="lista">
+            {% if directores %}
+                {% for entry in directores %}
+                    <a href="{% url 'detalles' nombre=entry tipo='director' %}"><p id="director">{{ entry.nombre }} {{ entry.apellido }}</p></a>
+                {% endfor %}
+            {% else %}
+                <p>No se encontraron directores.</p>
+            {% endif %}
+        </div>
+    </div>  
+{% endblock %}
+

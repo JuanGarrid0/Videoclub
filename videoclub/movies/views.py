@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Q
 
 from .models import Director, Movie
 
@@ -106,3 +107,15 @@ def listaMainPage():
           genero.append(item.genero)
     return main
 
+#Busqueda por nombre de director
+def buscarDirector(request):
+    query = request.GET.get('q')
+    if query:
+        # Busca en directores
+        directores = Director.objects.filter(Q(nombre__icontains=query) | Q(apellido__icontains=query))
+    else:
+        directores = []
+    
+    return render(request, 'movies/buscarDirector.html', {
+        'directores': directores,
+    })

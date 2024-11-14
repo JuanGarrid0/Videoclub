@@ -88,7 +88,7 @@ body{
     color: #333;
     font-size: 2.5em;
     margin-top: 0px;
-    padding: 4px;
+    padding-top: 4px;
     background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
 }
 
@@ -128,4 +128,51 @@ body{
     display: block;
 }
 
-/* Fin del código de 'director' */
+#barraBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+#barraBusqueda form {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    padding: 10px;
+    width: 30%;
+}
+
+#barraBusqueda input[type="text"] {
+    flex-grow: 1;     /* Espacio ocupado por la barra */
+    padding: 6px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#barraBusqueda input[type="text"]:focus {
+    border-color: darkblue;
+}
+
+#barraBusqueda button {
+    padding: 10px 20px;
+    margin-left: 20px;
+    background-color: #f1f1f1;
+    color: black;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+#barraBusqueda button:hover {
+    border-color: darkblue;
+}
+
+/* Codigo de la ventana de busqueda */
+
+/* Fin del código de 'director' y busqueda */

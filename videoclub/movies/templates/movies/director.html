@@ -6,6 +6,14 @@
 {% block body %}    
     <div id="directores">
         <h2><strong>Lista de Directores</strong></h2>
+
+        <div id="barraBusqueda">
+            <form action="{% url 'buscarDirector' %}" method="get">
+                <input type="text" name="q" placeholder="Buscar director..." />
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
         <div id="lista">
             {% for entry in director  %}   
                 <a href="{% url 'detalles' nombre=entry tipo='director' %}"><p id="director">  {{entry}} </p></a>
