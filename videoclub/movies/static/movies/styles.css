@@ -1,6 +1,24 @@
 body{
     background-image: url("images/cine.jpg");background-size: cover;
 }
+/* Código de modificación del índice */
+#indice {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    gap: 20px;
+}
+
+#indice a {
+    color: white;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+#indice a:hover {
+    color: yellow;
+}
 
 /* Código de modificación de 'lista' */
 #peliculas {
@@ -10,14 +28,15 @@ body{
 #peliculas h2 {
     color: #333;
     font-size: 2.5em;
-    margin-top: 20px;
+    margin-top: 0px;
     background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
 }
 
-#peliculas p {
+#peliculas p:first-of-type {
     color: #666;
     font-size: 1.1em;
     margin-bottom: 20px;
+    background: radial-gradient(circle, rgb(248, 248, 248) 10%, rgba(221, 221, 221, 0) 50%);
 }
 
 #peliculas #lista {
@@ -28,7 +47,7 @@ body{
 }
 
 #peliculas #pelicula{
-    background-color: #fff;
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     width: 180px;
