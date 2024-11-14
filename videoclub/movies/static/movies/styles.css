@@ -78,3 +78,54 @@ body{
 }
 
 /* Fin del código de 'lista' */
+/* Código de modificación de 'director' */
+
+#directores {
+    text-align: center;
+}
+
+#directores h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 0px;
+    padding: 4px;
+    background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
+}
+
+#directores #lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+#directores #director {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: auto 0;
+    text-align: center;
+    width: 1000px;
+    padding: 8px;
+    transition: transform 0.2s, border 0.2s;
+}
+
+#directores #director:hover {
+    transform: scale(1.03);
+    border: 1px solid darkblue;
+}
+
+#directores a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+}
+
+/* Fin del código de 'director' */

@@ -4,11 +4,12 @@
 
 
 {% block body %}    
-    <ul>
-        {% for entry in director  %}   
-            
-            <li><a href="{% url 'detalles' nombre=entry tipo='director' %}">  {{entry}} </a></li>
-        {% endfor %}
-
-    </ul>    
+    <div id="directores">
+        <h2><strong>Lista de Directores</strong></h2>
+        <div id="lista">
+            {% for entry in director  %}   
+                <a href="{% url 'detalles' nombre=entry tipo='director' %}"><p id="director">  {{entry}} </p></a>
+            {% endfor %}
+        </div>
+    </div>    
 {%endblock%}
