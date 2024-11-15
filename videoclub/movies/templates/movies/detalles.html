@@ -7,11 +7,18 @@
 
 
     {% if tipo == 'director' %}
-        <h3>Director</h3>
-        <p>{{nombre}}</p>
+        <div id="dir">
+            <h3>{{nombre}}   </h3>
+        </div>
+        <div id="listaGenero">
         {% for item in pelis  %}   
-            <li>  {{item}} </li>
+
+            <a href="{% url 'detalles' nombre=item tipo='lista' %}">
+                <p id = "pelicula"> {{item}}</p>
+                <img src="{% static 'movies/images/' %}{{item}}.jpg" alt="Portada de {{ item }}" width="100px"/>
+            </a>
         {% endfor %}
+        </div>
 
 
     {% elif tipo == 'genero' %}
