@@ -15,10 +15,12 @@
 
 
     {% elif tipo == 'genero' %}
-        <p>Genero de {{genero}}</p>
-        {% for item in peli  %}   
-            <li> NOMBRE {{item.0}}, GENERO {{item.1}}, TIPO {{item.2}}, DIRECTORES {{item.3}}</li>
-        {% endfor %}
+        <p id ="tituloGenero"><strong>Lista de películas de {{genero}}</strong></p>
+        <div id = "listaGenero">
+            {% for item in peli  %}   
+                <a href="{% url 'detalles' nombre=item.0 tipo='lista' %}"><p id = "pelicula"> {{item.0}}</p></a>
+            {% endfor %} 
+        </div>
 
 
     {% elif tipo == 'lista' %}

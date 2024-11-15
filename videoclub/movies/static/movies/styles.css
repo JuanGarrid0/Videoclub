@@ -77,6 +77,54 @@ body{
     display: block;
 }
 
+/* Lista en base al género */
+
+#tituloGenero {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 0px;
+    padding: 4px;
+    background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
+}
+
+#listaGenero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#listaGenero #pelicula{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 180px;
+    height: 200px; /* Se puede agregar una imagen con la portada de la película o dejar únicamente el texto */
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.2s, border 0.2s;
+}
+
+#listaGenero #pelicula:hover {
+    transform: scale(1.1);
+    border: 3px solid darkblue;
+}
+
+#listaGenero a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+}
+
 /* Fin del código de 'lista' */
 /* Código de modificación de 'director' */
 
