@@ -1,5 +1,5 @@
 {% extends "movies/layout.html" %} 
-
+{% load static%}
 {% block title %} MovieStore {% endblock %} 
 
 
@@ -10,7 +10,10 @@
         <div id = "lista">
             {% for entry in lista  %} 
 
-                <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> <p id = "pelicula"> {{entry}}</p></a>
+                <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> 
+                    <p id = "pelicula"> {{entry}}</p>
+                    <img src="{% static 'movies/images/' %}{{entry}}.jpg" alt="Portada de {{ entry }}" width="100px"/>
+                </a>
             {% endfor %} 
         </div>
     </div>   
