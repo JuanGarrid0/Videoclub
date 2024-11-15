@@ -1,5 +1,5 @@
 {% extends "movies/layout.html" %} 
-
+{% load static%}
 {% block title %} MovieStore {% endblock %} 
 
 
@@ -27,7 +27,7 @@
         <p id="informacionPelicula"><strong>Informacion de {{nombre}}</strong></p>
         <div id="frame">
             <div id="imagen">
-                <img src="images/bambi.jpg" alt="Portada (placeholder) de {{ nombre }}" />
+                <img src="{% static 'movies/images/' %}{{nombre}}.jpg" alt="Portada (placeholder) de {{ nombre }}" />
             </div>
            <div id="informacion">
                 <p id="titulo"> <strong>Título:</strong> {{peli.0}} </p>
