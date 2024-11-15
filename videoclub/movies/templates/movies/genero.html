@@ -6,9 +6,7 @@
 {% block body %}    
     <ul>
         {% for entry in genero  %}   
-            
             <li>  <a href="{% url 'detalles' nombre=entry tipo='genero' %}"> {{entry}} </a></li>
         {% endfor %}
-
     </ul>    
 {%endblock%}
