@@ -8,8 +8,10 @@
         <h2><strong>Lista de Películas</strong></h2>
         <p>Explora todas nuestras películas</p>
         <div id = "lista">
-            {% for entry in lista  %}   
+            {% for entry in lista  %} 
+
                 <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> <p id = "pelicula"> {{entry}}</p></a>
+                <img href = "images/cine.jpg" width="100" height="100" alt="cine">
             {% endfor %} 
         </div>
     </div>   
