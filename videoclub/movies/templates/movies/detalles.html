@@ -24,11 +24,18 @@
 
 
     {% elif tipo == 'lista' %}
-        <p>Informacion de {{nombre}}</p>
-        {% for item in peli  %}  
-           <li>  {{item}} </li>
-
-        {% endfor %}
+        <p id="informacionPelicula"><strong>Informacion de {{nombre}}</strong></p>
+        <div id="frame">
+            <div id="imagen">
+                <img src="images/bambi.jpg" alt="Portada (placeholder) de {{ nombre }}" />
+            </div>
+           <div id="informacion">
+                <p id="titulo"> <strong>Título:</strong> {{peli.0}} </p>
+                <p id="genero"> <strong>Género:</strong> {{peli.1}} </p>
+                <p id="tipo"> <strong>Tipo:</strong> {{peli.2}} </p>
+                <p id="director"> <strong>Director:</strong> {{peli.3}} </p>
+           </div> 
+        </div>
     {%endif%}
 
 
