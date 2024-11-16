@@ -49,13 +49,18 @@ footer{
     display: inline-block;
     text-align: center;
     bottom:0;
-    color:white;
+    background-color:black;
+}
+footer h4{
+ color:white;
+ 
 }
   
 
 /* Código de modificación de 'lista' */
 #peliculas {
     text-align: center;
+    font-weight: bold;
 }
 
 #peliculas h2 {
