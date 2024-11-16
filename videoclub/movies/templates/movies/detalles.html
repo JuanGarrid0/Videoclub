@@ -15,7 +15,7 @@
 
             <a href="{% url 'detalles' nombre=item tipo='lista' %}">
                 <p id = "pelicula"> {{item}}</p>
-                <img src="{% static 'movies/images/' %}{{item}}.jpg" alt="Portada de {{ item }}" width="100px"/>
+                <img src="{% static 'movies/images/' %}{{item}}.jpg" alt="Portada de {{ item }}" width="100">
             </a>
         {% endfor %}
         </div>
@@ -27,7 +27,7 @@
             {% for item in peli  %}   
                 <a href="{% url 'detalles' nombre=item.0 tipo='lista' %}">
                     <p id = "pelicula"> {{item.0}}</p>
-                    <img src="{% static 'movies/images/' %}{{item.0}}.jpg" alt="Portada de {{ item.0 }}" width="100px"/>
+                    <img src="{% static 'movies/images/' %}{{item.0}}.jpg" alt="Portada de {{ item.0 }}" width="100">
                 </a>
             {% endfor %} 
         </div>
@@ -37,7 +37,7 @@
         <p id="informacionPelicula"><strong>Informacion de {{nombre}}</strong></p>
         <div id="frame">
             <div id="imagen">
-                <img src="{% static 'movies/images/' %}{{nombre}}.jpg" alt="Portada (placeholder) de {{ nombre }}" />
+                <img src="{% static 'movies/images/' %}{{nombre}}.jpg" alt="Portada (placeholder) de {{ nombre }}">
             </div>
            <div id="informacion">
                 <p id="titulo"> <strong>Título:</strong><br> {{peli.0}} </p><br>

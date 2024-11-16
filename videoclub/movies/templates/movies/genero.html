@@ -10,7 +10,7 @@
             {% for entry in genero  %}   
                 <a href="{% url 'detalles' nombre=entry tipo='genero' %}"> 
                     <p id="genero"> {{entry}} </p>
-                    <img src="{% static 'movies/images/' %}{{entry}}.png" alt="Imagen de {{ entry }}" width="100px"/>
+                    <img src="{% static 'movies/images/' %}{{entry}}.png" alt="Imagen de {{ entry }}" width="100">
                 </a>
             {% endfor %}
         </div>  

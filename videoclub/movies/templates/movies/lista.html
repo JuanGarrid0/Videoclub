@@ -12,7 +12,7 @@
 
                 <a href="{% url 'detalles' nombre=entry tipo='lista' %}"> 
                     <p id = "pelicula"> {{entry}}</p>
-                    <img src="{% static 'movies/images/' %}{{entry}}.jpg" alt="Portada de {{ entry }}" width="100px"/>
+                    <img src="{% static 'movies/images/' %}{{entry}}.jpg" alt="Portada de {{ entry }}" width="100">
                 </a>
             {% endfor %} 
         </div>

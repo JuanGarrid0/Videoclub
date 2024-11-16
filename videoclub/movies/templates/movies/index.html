@@ -7,16 +7,19 @@
 
 {% block body %}    
 <ul>
-    <div id="listaGenero">
-    {% for movy in items  %}   
+    <li>
+        <div id="listaGenero">
+            {% for movy in items  %}   
+                
+                <a href="{% url 'detalles' nombre=movy tipo='lista' %}">
+                    <p id = "pelicula"> {{movy}}</p>
+                    <img src="{% static 'movies/images/' %}{{movy}}.jpg" alt="Portada de {{ movy }}" width="100">
+                </a>
         
-        <a href="{% url 'detalles' nombre=movy tipo='lista' %}">
-            <p id = "pelicula"> {{movy}}</p>
-            <img src="{% static 'movies/images/' %}{{movy}}.jpg" alt="Portada de {{ movy }}" width="100px"/>
-        </a>
-
-       <!-- <li>  {{movy}} </li>-->
-    {% endfor %}
-    </div>
+               <!-- <li>  {{movy}} </li>-->
+            {% endfor %}
+        </div>
+    </li>
+    
 </ul>    
 {% endblock %}
