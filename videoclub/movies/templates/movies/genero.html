@@ -1,12 +1,18 @@
 {% extends "movies/layout.html" %} 
-
+{% load static%}
 {% block title %} MovieStore {% endblock %} 
 
 
-{% block body %}    
-    <ul>
-        {% for entry in genero  %}   
-            <li>  <a href="{% url 'detalles' nombre=entry tipo='genero' %}"> {{entry}} </a></li>
-        {% endfor %}
-    </ul>    
+{% block body %}
+    <div id="generos">
+        <h2><strong>Lista de Películas</strong></h2>    
+        <div id="listaGeneros">
+            {% for entry in genero  %}   
+                <a href="{% url 'detalles' nombre=entry tipo='genero' %}"> 
+                    <p id="genero"> {{entry}} </p>
+                    <img src="{% static 'movies/images/' %}{{entry}}.png" alt="Imagen de {{ entry }}" width="100px"/>
+                </a>
+            {% endfor %}
+        </div>  
+    </div>  
 {%endblock%}

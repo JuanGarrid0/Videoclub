@@ -300,4 +300,58 @@ nav{
  text-align: center;
  padding: 50px;
 }
+
 /* Fin del código de detalles de película */
+
+/* Codigo de Genero */
+
+#generos {
+    text-align: center;
+}
+
+#generos h2{
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 0px;
+    padding: 4px;
+    background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
+}
+
+#generos #listaGeneros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+#generos a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 180px;
+    height: 200px; /* Se puede agregar una imagen con la portada de la película o dejar únicamente el texto */
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.2s, border 0.2s;
+}
+
+#generos a:hover {
+    transform: scale(1.1);
+    border: 3px solid darkblue;
+}
+
+#generos img {
+    border-radius: 15px;
+}
+
+/* Fin del código de genero */
