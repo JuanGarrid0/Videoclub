@@ -1,17 +1,22 @@
 {% extends "movies/layout.html" %} 
-
+{% load static %}
 {% block title %} 
     MovieStore 
 {% endblock %} 
 
 
 {% block body %}    
-<h2>MovieStore</h2>
 <ul>
+    <div id="listaGenero">
     {% for movy in items  %}   
         
-        <li>  {{movy}} </li>
-    {% endfor %}
+        <a href="{% url 'detalles' nombre=movy tipo='lista' %}">
+            <p id = "pelicula"> {{movy}}</p>
+            <img src="{% static 'movies/images/' %}{{movy}}.jpg" alt="Portada de {{ movy }}" width="100px"/>
+        </a>
 
+       <!-- <li>  {{movy}} </li>-->
+    {% endfor %}
+    </div>
 </ul>    
 {% endblock %}
