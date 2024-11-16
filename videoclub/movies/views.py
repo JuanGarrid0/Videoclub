@@ -41,7 +41,7 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
             counter=0
             for d in unidadPeli.directores.all():
                 if(unidadPeli.directores.all().count()-1 > counter):
-                    dirPelis= dirPelis +d.nombre+" "+d.apellido+" ,"
+                    dirPelis= dirPelis +d.nombre+" "+d.apellido+", "
                     counter= counter+1
                 else:
                     dirPelis= dirPelis+ d.nombre+" "+d.apellido
@@ -59,7 +59,7 @@ def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
         counter=0
         for d in pelis.directores.all():
             if(pelis.directores.all().count()-1 > counter):
-                directoresPelis= directoresPelis +d.nombre+" "+d.apellido+" ,"
+                directoresPelis= directoresPelis +d.nombre+" "+d.apellido+", "
                 counter= counter+1
             else:
                 directoresPelis= directoresPelis+ d.nombre+" "+d.apellido
