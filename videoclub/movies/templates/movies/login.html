@@ -1,0 +1,32 @@
+{% extends "movies/layout.html" %}
+{% load static%}
+
+{% block body %}
+
+    {% if user.is_authenticated %}
+            <div id="out">
+                <h2>Cerrar sesión</h2>
+                    <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+            </div>
+    {% else %}
+        <div id="login">
+            <h2>Iniciar sesión</h2>
+            {% if message %}
+                {{message}}
+            {% endif %}
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input autofocus class="form" type="text" name="username" placeholder="USUARIO">
+                </div>
+                <div>
+                    <input class="form" type="password" name="password" placeholder="CONTRASEÑA">
+                </div>
+                <input class="button" type="submit" name="log"  value="Login">
+            </form>
+
+            ¿No tiene cuenta? <a href="{% url 'register' %}">Registrese aquí.</a>
+        </div>
+
+    {% endif %}
+{% endblock %}

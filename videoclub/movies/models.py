@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class Director(models.Model):
@@ -13,3 +13,5 @@ class Movie (models.Model):
     directores = models.ManyToManyField(Director)
     tipoMovie = models.CharField(choices=movies, max_length=20)
 
+class User(AbstractUser):
+    pass

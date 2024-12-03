@@ -31,7 +31,11 @@
             </nav>
         </div>
         </header>
-
+        <div id="perfil">
+            <a href ="{% url 'login' %}">
+                <img src="{% static 'movies/images/perfil.png' %}" alt="perfil"  style="width:70px;height:auto;">
+            </a>
+        </div>
         {% block body %}
         {% endblock %}
     

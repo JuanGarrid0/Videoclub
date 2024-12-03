@@ -1,0 +1,29 @@
+{% extends "movies/layout.html" %}
+
+{% block body %}
+    <div id="register">
+        <h2>Registrarse</h2>
+
+        {% if message %}
+            {{message}}
+        {% endif %}
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <input class="form" autofocus type="text" name="username" placeholder="USUARIO">
+            </div>
+            <div>
+                <input class="form" type="email" name="email" placeholder="EMAIL">
+            </div>
+            <div>
+                <input class="form" type="password" name="password" placeholder="CONTRASEÑA">
+            </div>
+            <div>
+                <input class="form" type="password" name="confirmation" placeholder="REPITA CONTRASEÑA">
+            </div>
+            <input class="button" type="submit" value="REGISTRAR" name="confirm">
+        </form>
+
+        ¿Ya tiene una cuenta? <a href="{% url 'login' %}">Inicie sesión.</a>
+    </div>
+{% endblock %}

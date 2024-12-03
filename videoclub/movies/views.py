@@ -1,8 +1,10 @@
-from django.http import HttpResponse
+from django.db import IntegrityError
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.db.models import Q
-
-from .models import Director, Movie
+from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
+from .models import Director, Movie, User
 
 # Create your views here.
 #Prueba
@@ -19,6 +21,57 @@ def genero(request):
 def lista(request):
     return render(request, "movies/lista.html",{"lista": getLista()})
 
+
+
+def login_view(request):
+    if request.method == "POST":
+
+        name = request.POST.get("username")
+        print(name)
+        pas = request.POST.get("password")
+        print(pas)
+        user = authenticate(request, username=name, password=pas)
+        print(user)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            return render(request, "movies/login.html", {
+                "message": "Invalid username and/or password."
+            })
+    else:
+        return render(request, "movies/login.html")
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("index"))
+
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+
+        password = request.POST.get("password")
+        confirmation = request.POST.get("confirmation")
+        if password != confirmation:
+            return render(request, "movies/register.html", {
+                "message": "Passwords must match."
+            })
+
+        try:
+            user = User.objects.create_user(username, email, password)
+            user.save()
+        except IntegrityError:
+            return render(request, "movies/register.html", {
+                "message": "Username already taken."
+            })
+        login(request, user)
+        return HttpResponseRedirect(reverse("index"))
+    else:
+        return render(request, "movies/register.html")
+    
 
 def detalles(request, nombre, tipo):  #detalles pelicula, genero y director
     #return HttpResponse(f"Hola{nombre}")

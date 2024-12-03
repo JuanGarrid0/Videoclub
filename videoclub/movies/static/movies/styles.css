@@ -55,7 +55,19 @@ footer h4{
  color:white;
  
 }
-  
+
+/* Código de modificación de perfil */
+#perfil a img {
+    border-radius: 15;
+
+}
+#perfil {
+    width: auto;
+    height: 70px;
+
+
+}
+
 
 /* Código de modificación de 'lista' */
 #peliculas {
@@ -370,3 +382,26 @@ footer h4{
 }
 
 /* Fin del código de genero */
+
+
+/*Login y registro*/
+
+#login {
+
+    background-color: #f0f0f0;
+    text-align: center;
+}
+#out {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 40px;
+}
+#out a{
+font-size: large;
+
+}
+#register{
+    background-color: #f0f0f0;
+    text-align: center;
+
+}
