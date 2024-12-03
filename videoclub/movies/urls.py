@@ -12,5 +12,8 @@ urlpatterns = [
     path("login", views.login_view, name="login"),
     path("register", views.register, name="register"),
     path("logout", views.logout_view, name="logout"),
+    path("delete/<str:peli>", views.delete, name="delete"),
+    path("update", views.update, name="update"),
+
 
 ]

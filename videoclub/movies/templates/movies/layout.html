@@ -43,7 +43,11 @@
 
 
         <footer>
+            <br>
             <h4>tlf: +34 444 433 322</h4>
+            {% if user.is_authenticated %}
+               <h4>El usuario actual es: {{user}}</h4>
+            {% endif %}
         </footer>
 
     </body>

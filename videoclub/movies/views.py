@@ -174,3 +174,11 @@ def buscarDirector(request):
     return render(request, 'movies/director.html', {
         'director': dir,
     })
+
+def delete(request, peli):
+    if request.method == "POST":
+        movie= Movie.objects.get(nombre=peli)
+        movie.delete()
+        return HttpResponseRedirect(reverse("index"))
+def update():
+    return
