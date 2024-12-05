@@ -6,7 +6,7 @@ body{
 header{
     background-color: black;
 }
-header h1{
+header #moviestore{
 color: white;
 display: flex;
 align-items: center;
@@ -15,7 +15,7 @@ width: 100%;
 padding: 0 20px;
 text-align: center;
 }
-header h1 span{
+header #moviestore h1{
     flex-grow: 1;
     text-align: center;
     margin-right: 100px;
