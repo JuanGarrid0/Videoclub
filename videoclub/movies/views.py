@@ -239,15 +239,18 @@ def update(request, peli):
         tipo = request.POST.get("tipo")
         if tipo is not None:
          movie.tipoMovie=tipo
+         movie.save()
 
 
         directores = request.POST.get("directores")
-        if directores is not None:
+        print(directores)
+        if directores is not None and directores!="":
             directors_list = []
            
             try:
                     nombreYapellidos=directores.split(" ")
-
+                    print("aqui va")
+                    print(nombreYapellidos)
                     director = Director.objects.get(nombre=nombreYapellidos[0], apellido=nombreYapellidos[1])
                     directors_list.append(director)
             except Director.DoesNotExist:
