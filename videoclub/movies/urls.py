@@ -14,6 +14,5 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("delete/<str:peli>", views.delete, name="delete"),
     path("update", views.update, name="update"),
-
-
+    path("BuscarPeliculas/", views.buscarPeliculas, name="BuscarPeliculas"),
 ]

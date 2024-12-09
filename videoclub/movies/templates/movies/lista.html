@@ -7,6 +7,7 @@
     <div id = "peliculas"> <!-- Para modificar únicamente esta parte en el 'styles.css' -->
         <h2><strong>Lista de Películas</strong></h2>
         <p>Explora todas nuestras películas</p>
+        <input type="text" id="barraBusquedaPeliculas" placeholder="Buscar una película..." onkeyup="buscarPelicula()"></input>
         <div id = "lista">
             {% for entry in lista  %} 
 
@@ -19,4 +20,5 @@
             {% endfor %} 
         </div>
     </div>   
+    <script src="{% static 'movies/scripts/peliculas.js' %}"></script>
 {%endblock%}
