@@ -1,6 +1,10 @@
 from django.db import IntegrityError
+
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
+
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import render
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -174,6 +178,17 @@ def buscarDirector(request):
     return render(request, 'movies/director.html', {
         'director': dir,
     })
+
+#Busuqeda por nombre de película (Para JavaScript)
+def buscarPeliculas(request):
+    lista = getLista()
+    query = request.GET.get('q', '')
+    if query:
+        resultados = [entry for entry in lista if query.lower() in entry.lower()]
+    else:
+        resultados = lista
+    
+    return JsonResponse({'results': resultados})
 
 def delete(request, peli):
     if request.method == "POST":

@@ -15,6 +15,5 @@ urlpatterns = [
     path("delete/<str:peli>", views.delete, name="delete"),
     path("updatePage/<str:peli>", views.updatePage, name="updatePage"),
     path("update/<int:peli>", views.update, name="update"),
-
-
+    path("BuscarPeliculas/", views.buscarPeliculas, name="BuscarPeliculas"),
 ]
