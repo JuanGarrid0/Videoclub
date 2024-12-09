@@ -1,6 +1,6 @@
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -180,5 +180,68 @@ def delete(request, peli):
         movie= Movie.objects.get(nombre=peli)
         movie.delete()
         return HttpResponseRedirect(reverse("index"))
-def update():
-    return
+    
+def nombreToId(peli):
+    movie= Movie.objects.get(nombre=peli)
+    id = movie.id
+    return id 
+
+def updatePage(request,peli ):
+    if request.method == "POST":
+            try:
+                movie = Movie.objects.get(nombre=peli)
+                id=movie.id
+
+            except Movie.DoesNotExist:
+                raise Http404("Movie not found") 
+                       
+            try:
+                movie= Movie.objects.get(id=id)
+                directores=movie.directores.values()
+                return render(request,'movies/update.html',{"movie":movie,"directores":directores  })
+
+            except Movie.DoesNotExist:
+                raise Http404("Movie not found") 
+           
+ 
+
+
+def update(request, peli):
+    movie= Movie.objects.get(id=peli)
+    if request.method =="POST":
+        nombre = request.POST.get("nombre")
+        if nombre is not None:
+            movie.nombre=nombre
+            movie.save()
+
+
+        genero = request.POST.get("genero")
+        if genero is not None:
+            movie.genero=genero
+            movie.save()
+
+
+        tipo = request.POST.get("tipo")
+        if tipo is not None:
+         movie.tipoMovie=tipo
+
+
+        directores = request.POST.get("directores")
+        if directores is not None:
+            directors_list = []
+           
+            try:
+                    nombreYapellidos=directores.split(" ")
+
+                    director = Director.objects.get(nombre=nombreYapellidos[0], apellido=nombreYapellidos[1])
+                    directors_list.append(director)
+            except Director.DoesNotExist:
+                    raise Http404("ERROR DIRECTOR")
+                
+            movie.directores.set(directors_list)
+            movie.save()
+
+
+
+ 
+        return redirect(reverse('index'))

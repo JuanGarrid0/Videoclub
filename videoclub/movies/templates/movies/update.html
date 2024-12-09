@@ -1,0 +1,45 @@
+{% extends "movies/layout.html" %} 
+{% load static%}
+{% block title %} MovieStore {% endblock %} 
+
+
+{% block body %}    
+
+    <p id="informacionPelicula"><strong>Actualizar</strong></p>
+    <div id="frame">
+        <div id="imagen">
+            <img src="{% static 'movies/images/' %}{{movie.nombre}}.jpg" alt="Portada (placeholder) de {{ movie.nombre }}">
+        </div>
+        <div id="informacion">
+            <form method="post" action="{% url 'update' peli=movie.id %}">
+                {% csrf_token %}
+                
+                <input class="form" type="text" name="nombre" placeholder="{{ movie.nombre }}" value="{{ movie.nombre }}">
+        
+                <input autofocus class="form" type="text" name="genero" placeholder="{{ movie.genero }}" value="{{ movie.genero }}">
+        
+                <select name="tipo" id="tipo">
+                    <option value="" disabled selected>{{ movie.tipoMovie }}</option>
+                    {% if movie.tipoMovie == "Pelicula" %}
+                        <option value="Serie">Serie</option>
+                    {% elif movie.tipoMovie == "Serie" %}
+                        <option value="Pelicula">Pelicula</option>
+                    {% endif %}
+                </select>
+        
+                <div id="contenedorDirectores">
+                    {% for item in directores %}
+                      <input autofocus class="form" type="text" name="directores" placeholder="{{item.nombre}} {{item.apellido}}">
+                    {% endfor %}
+                </div>
+        
+                <div id="botonesEditar">
+                    <input class="button" type="submit" name="Confirmar" value="Confirmar">
+                </div>
+            </form>
+        </div>
+        
+    </div>
+
+
+{%endblock%}

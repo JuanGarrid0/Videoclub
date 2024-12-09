@@ -10,7 +10,7 @@ class Movie (models.Model):
     movies= (("Pelicula", "Pelicula"), ("Serie", "Serie"))
     genero = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
-    directores = models.ManyToManyField(Director)
+    directores = models.ManyToManyField(Director, null=True, blank=True)
     tipoMovie = models.CharField(choices=movies, max_length=20)
 
 class User(AbstractUser):
