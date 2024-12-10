@@ -1,5 +1,6 @@
 body{
     background-image: url("images/cine.jpg");background-size: cover;
+    height: 100%;
 }
 
 /* Código de modificación del índice */
@@ -431,14 +432,23 @@ footer h4{
 }
 
 #formulario form {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 10px;
     margin-top:50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 50px;
     border-style: solid;
-    border-color:black;
+    border-color:white;
+    color: white;
+}
+
+#formulario label{
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 /* Fin del código de alquilar (formulario)*/
