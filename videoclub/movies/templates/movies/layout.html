@@ -15,7 +15,13 @@
         <div id = "moviestore">
             <a id = "perfil" href ="{% url 'login' %}">
                 <img src="{% static 'movies/images/perfil.png' %}" alt="perfil"  style="width:60px;height:auto;">
-            </a> <h1>MOVIESTORE</h1>
+                <div id="usuario">
+                    {% if user.is_authenticated %}
+                        <p><strong>Usuario:</strong> {{ user }}</p>
+                    {% endif %}
+                </div>
+            </a>
+            <h1>MOVIESTORE</h1>
         </div>
 
         <div id = "indice">
@@ -38,15 +44,14 @@
         </header>
         {% block body %}
         {% endblock %}
-    
-
 
         <footer>
-            <br>
-            <h4>tlf: +34 444 433 322</h4>
-            {% if user.is_authenticated %}
-               <h4>El usuario actual es: {{user}}</h4>
-            {% endif %}
+            <div id="info">
+                <p><strong>Dirección:</strong> Calle 123, Ciudad de Películas, CP 45678</p>
+                <p><strong>Email:</strong> contacto@movierent.com</p>
+                <p><strong>Teléfono:</strong> +34 123 456 789</p>
+                <p>&copy; 2024 MovieRent. Todos los derechos reservados.</p>
+            </div>
         </footer>
 
     </body>

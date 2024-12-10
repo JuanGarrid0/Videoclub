@@ -22,20 +22,29 @@
             <input type="text" name="telefono" id="telefono">
             <br>
         </form>
-        <form id = "pelicula" action="form.php" method="post">
-            <fieldset>
-                <legend><strong>Seleccionar pelicula</strong></legend>
-                <label for="ciencia">Ciencia</label>
-                <select id="pelicula_ciencia" name="ciencia" multiple size="3">
-                    <option>opcion1</option>
-                </select>
+        <form id = "pelicula" action = "form.php" method = "post">
+            <legend><strong>Seleccionar pelicula</strong></legend>
+            <input type="text" id="barraBusquedaPeliculas" placeholder="Buscar película..."></input>
+            <div id = "resultado">
 
-                <label for="miedo">miedo</label>
-                <select id="pelicula_miedo" name="miedo" multiple size="5">
-                    <option>opcion 1</option>
-                    <option>opcion 2</option>
-                </select>
-            </fieldset>
+            </div>
+        </form>
+
+
+
+
+        <form id = "pel" action="form.php" method="post">
+            <legend><strong>iula</strong></legend>
+            <label for="ciencia">Ciencia</label>
+            <select id="pelicula_ciencia" name="ciencia" multiple size="3">
+                <option>opcion1</option>
+            </select>
+
+            <label for="miedo">miedo</label>
+            <select id="pelicula_miedo" name="miedo" multiple size="5">
+                <option>opcion 1</option>
+                <option>opcion 2</option>
+            </select>
         </form>
             <fieldset>
                 <legend><strong>Mascotas</strong></legend>
