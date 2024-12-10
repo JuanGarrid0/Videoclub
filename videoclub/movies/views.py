@@ -16,7 +16,6 @@ def index(request):
     return render(request, "movies/index.html", { "items" : listaMainPage()})
 
 def director(request):
-    
     return render(request, "movies/director.html", {"director": getDirectores()} )
 
 def genero(request):
@@ -25,6 +24,8 @@ def genero(request):
 def lista(request):
     return render(request, "movies/lista.html",{"lista": getLista()})
 
+def formulario(request):
+    return render(request, "movies/formulario.html")
 
 
 def login_view(request):

@@ -7,6 +7,7 @@ urlpatterns = [
     path('director', views.director, name="director"),
     path('genero', views.genero, name="genero"),
     path('lista', views.lista, name="lista"),
+    path("formulario", views.formulario, name="formulario"),
     path('detalles/<str:tipo>/<str:nombre>/',views.detalles, name="detalles"),
     path('buscarDirector/', views.buscarDirector, name='buscarDirector'),
     path("login", views.login_view, name="login"),
