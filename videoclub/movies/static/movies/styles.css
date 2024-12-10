@@ -7,43 +7,49 @@ body{
 header{
     background-color: black;
 }
-header #moviestore{
-color: white;
-display: flex;
-align-items: center;
-justify-content: space-between;
-width: 100%;
-padding: 0 20px;
-text-align: center;
-padding-top: 20px;
-border-bottom-color: white;
-border-bottom-style: solid;
 
+header #moviestore{
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    padding-top: 20px;
 }
+
 header #moviestore h1{
     flex-grow: 1;
     text-align: center;
-    margin-right: 100px;
+    margin-right: 250px;
 }
+
 nav ul a {
     text-decoration: none; 
 }
+
 nav ul{
-     margin-left: 40px;
-     padding:20px
+    margin-left: 40px;
+    padding-top:20px;
+    padding-bottom: 10px;     
 }
+
 nav li{
     display: inline; 
     margin-right: 70px; 
 }
+
 nav{
     display: flex;
     justify-content: center;
 }
+
 #indice {
     display: flex;
     justify-content: center;
     gap: 20px;
+    border-top-color: white;
+    border-top-style: solid;
+    
 }
 
 #indice a {
@@ -55,7 +61,7 @@ nav{
 
 #indice a:hover {
     color: darkblue;
-    background-color: whitesmoke;
+    background-color: #f9a825;
     font-size: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -75,11 +81,11 @@ footer {
 }
 
 #info p {
-    margin: 5px 0; /* Reduce el espacio entre líneas */
+    margin: 5px 0;
 }
 
 footer strong {
-    color: #f9a825; /* Color amarillo para destacar etiquetas */
+    color: #f9a825;
 }
 
 /* Fin del codigo del footer
@@ -100,10 +106,14 @@ footer strong {
 }
 
 #usuario p {
-    margin: 0; /* Eliminamos el margen para ajustarlo mejor */
+    margin: 0;
     color: white;
-    font-size: 16px; /* Tamaño de la fuente */
+    font-size: 16px;
     font-weight: normal;
+}
+
+#usuario strong {
+    color: #f9a825;
 }
 
 /* Código de modificación de 'lista' */
