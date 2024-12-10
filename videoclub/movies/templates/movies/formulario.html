@@ -2,8 +2,8 @@
 
 
 {% block body %}
-    <section id="formulario">
-        <h3><u>Formulario de adopción</u></h3>
+    <div id="formulario">
+        <h2><strong>Alquila peliculas</strong></h2>
         <form action="form.php" method="post">
             <fieldset>
                 <legend><strong>Datos del cliente</strong></legend>
@@ -24,48 +24,16 @@
                 <br>
             </fieldset>
             <fieldset>
-                <legend><strong>Accesorios de la tienda</strong></legend>
-                <label for="perros">Perros:</label>
-                <select id="accesorio-perros" name="perros" multiple size="3">
-                    <option>Comida</option>
-                    <option>Comedero</option>
-                    <option>Correa</option>
+                <legend><strong>Seleccionar pelicula</strong></legend>
+                <label for="ciencia">Ciencia</label>
+                <select id="pelicula_ciencia" name="ciencia" multiple size="3">
+                    <option>opcion1</option>
                 </select>
 
-                <label for="gatos">Gatos:</label>
-                <select id="accesorio-gatos" name="gatos" multiple size="3">
-                    <option>Comida</option>
-                    <option>Cama</option>
-                    <option>Cepillo</option>
-                </select>
-
-                <label for="conejos">Conejos:</label>
-                <select id="conejos" name="conejos" multiple size="3">
-                    <option>Comida</option>
-                    <option>Comedero</option>
-                    <option>Bebedero</option>
-                </select>
-
-                <label for="cobayas">Cobayas:</label>
-                <select id="cobayas" name="cobayas" multiple size="2">
-                    <option>Comida</option>
-                    <option>Jaula</option>
-                </select>
-
-                <label for="aves">Aves:</label>
-                <select id="accesorio-aves" name="aves" multiple size="3">
-                    <option>Comida</option>
-                    <option>Bebedero</option>
-                    <option>Comedero</option>
-                </select>
-
-                <label for="acuaticos">Acuáticos:</label>
-                <select id="accesorio-acuaticos" name="acuaticos" multiple size="5">
-                    <option>Comida tortugas</option>
-                    <option>Comida peces</option>
-                    <option>Pecera</option>
-                    <option>Arena</option>
-                    <option>Decoración</option>
+                <label for="miedo">miedo</label>
+                <select id="pelicula_miedo" name="miedo" multiple size="5">
+                    <option>opcion 1</option>
+                    <option>opcion 2</option>
                 </select>
             </fieldset>
             <fieldset>
@@ -124,5 +92,5 @@
             <br>
             <input id="enviar" type="submit" value="Enviar">
         </form>
-    </section>
+    </div>
 {%endblock%}

@@ -5,7 +5,7 @@
 
 {% block body %}
     <div id="generos">
-        <h2><strong>Lista de Películas</strong></h2>    
+        <h2><strong>Peliculas por genero</strong></h2>    
         <div id="listaGeneros">
             {% for entry in genero  %}   
                 <a href="{% url 'detalles' nombre=entry tipo='genero' %}"> 

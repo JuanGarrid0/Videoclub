@@ -14,6 +14,10 @@ justify-content: space-between;
 width: 100%;
 padding: 0 20px;
 text-align: center;
+padding-top: 20px;
+border-bottom-color: white;
+border-bottom-style: solid;
+
 }
 header #moviestore h1{
     flex-grow: 1;
@@ -35,7 +39,6 @@ nav{
 #indice {
     display: flex;
     justify-content: center;
-    padding: 10px;
     gap: 20px;
 }
 
@@ -71,14 +74,12 @@ footer h4{
 /* Código de modificación de perfil */
 #perfil img {
     border-radius: 45px;
-    margin-top: 20px;
-
+    margin-top: 80px;
 }
 #perfil {
     width: auto;
     height: 70px;
 }
-
 
 /* Código de modificación de 'lista' */
 #peliculas {
@@ -415,6 +416,32 @@ footer h4{
 
 /* Fin del código de genero */
 
+/* Codigo de Alquilar (formulario)*/
+
+#formulario {
+    text-align:center;
+}
+
+#formulario h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 0px;
+    padding: 4px;
+    background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
+}
+
+#formulario form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top:50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    border-style: solid;
+    border-color:black;
+}
+
+/* Fin del código de alquilar (formulario)*/
 
 /*Login y registro*/
 
