@@ -242,25 +242,50 @@ def update(request, peli):
          movie.tipoMovie=tipo
          movie.save()
 
-
-        directores = request.POST.get("directores")
-        print(directores)
-        if directores is not None and directores!="":
-            directors_list = []
+        d=[]
+        id_list=[]
+        for key in request.POST:
            
-            try:
-                    nombreYapellidos=directores.split(" ")
-                    print("aqui va")
-                    print(nombreYapellidos)
-                    director = Director.objects.get(nombre=nombreYapellidos[0], apellido=nombreYapellidos[1])
-                    directors_list.append(director)
-            except Director.DoesNotExist:
-                    raise Http404("ERROR DIRECTOR")
-                
-            movie.directores.set(directors_list)
+            if key.startswith("directores") and ( key is not None) and (key != "") :
+               
+                dir=request.POST.get(key).split(" ") 
+                if dir[0] != "":
+                    nombreD=dir[0]
+                    apellidoD=dir[1]
+                    id= key.split("_")
+                    id=id[2]
+                    id_list.append(id)
+                    try:
+                        director = Director.objects.get(nombre=nombreD, apellido=apellidoD)
+                        d.append(director)
+                    except Director.DoesNotExist:
+                        raise    Http404("ERROR DIRECTOR")   
+
+
+        if d:
+            directores=movie.directores.all()
+            lista=[]
+            count=0
+            for a in directores:
+                lista.append(a.nombre+" "+a.apellido)
+            for i in id_list:
+                a = Director.objects.get(nombre=d[count].nombre)
+                print(a)
+                lista[int(i)-1] = a.nombre+" "+ a.apellido
+                count=count+1
+            movie.directores.set( nameToSet(lista) )
+            print(nameToSet(lista))
             movie.save()
-
-
-
  
         return redirect(reverse('index'))
+    
+
+def nameToSet(t):
+ lis=[]
+ print(t)
+ for elemento in t:
+    nombres=elemento.split(" ")
+    s=Director.objects.get(nombre=nombres[0], apellido=nombres[1])
+    lis.append(s)
+ print(lis)
+ return lis

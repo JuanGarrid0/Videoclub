@@ -29,7 +29,7 @@
         
                 <div id="contenedorDirectores">
                     {% for item in directores %}
-                      <input autofocus class="form" type="text" name="directores" placeholder="{{item.nombre}} {{item.apellido}}">
+                      <input autofocus class="form" type="text" name="directores__{{ forloop.counter }}" placeholder="{{item.nombre}} {{item.apellido}}">
                     {% endfor %}
                 </div>
         
