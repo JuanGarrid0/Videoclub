@@ -27,7 +27,7 @@ header #moviestore h1 {
     font-size: 2.5em; /* Tamaño de fuente ajustado */
     text-align: center;
     flex-grow: 1;
-    margin-right: 20px; /* Reducido margen a la derecha */
+    margin-right: 180px;
 }
 nav ul a {
     text-decoration: none; 
@@ -473,6 +473,10 @@ footer strong {
     background: radial-gradient(circle, rgba(221, 221, 221, 1) 90%, rgba(221, 221, 221, 0) 100%);
 }
 
+#formulario legend{
+    color: #f9a825;
+}
+
 #formulario form {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
@@ -482,7 +486,7 @@ footer strong {
     margin-right: 300px;
     margin-bottom: 50px;
     border-style: solid;
-    border-color:white;
+    border-color:#f9a825;
     color: white;
 }
 

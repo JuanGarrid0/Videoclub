@@ -5,6 +5,7 @@
     <div id="formulario">
         <h2><strong>Alquila peliculas</strong></h2>
         <form id = "datos" action="form.php" method="post">
+            <!-- Si esta con su usuario se rellenan automaticamente -->
             <legend><strong>Datos del cliente</strong></legend>
             <label for="nombre">Nombre: </label>
             <input type="text" name="nombre" id = "nombre"><br>
@@ -17,10 +18,6 @@
             <label for="email">Email: </label>
             <input type="text" name="email" id="email"><br>
             <br>
-
-            <label for="telefono">Telefono: </label>
-            <input type="text" name="telefono" id="telefono">
-            <br>
         </form>
         <form id = "pelicula" action = "form.php" method = "post">
             <legend><strong>Seleccionar pelicula</strong></legend>
@@ -28,6 +25,10 @@
             <div id = "resultado">
 
             </div>
+        </form>
+        <form action="/submit" method="post">
+            <legend><strong>Seleccione una fecha:</strong></legend>
+            <input type="date" id="fecha" name="fecha" required>
         </form>
 
 
