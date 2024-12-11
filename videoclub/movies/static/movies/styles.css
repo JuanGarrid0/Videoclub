@@ -2,27 +2,33 @@ body{
     background-image: url("images/cine.jpg");background-size: cover;
     height: 100%;
 }
-
-/* Código de modificación del índice */
-header{
-    background-color: black;
+#contenido {
+    flex: 1;
 }
 
-header #moviestore{
+
+/* Código de modificación del índice */
+header {
+    background-color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+header #moviestore {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
     width: 100%;
-    padding: 0 20px;
+    padding: 20px 40px; /* Añadido espacio de padding en los lados */
     padding-top: 20px;
 }
 
-header #moviestore h1{
-    flex-grow: 1;
+header #moviestore h1 {
+    font-size: 2.5em; /* Tamaño de fuente ajustado */
     text-align: center;
-    margin-right: 250px;
+    flex-grow: 1;
+    margin-right: 20px; /* Reducido margen a la derecha */
 }
-
 nav ul a {
     text-decoration: none; 
 }
@@ -57,27 +63,27 @@ nav{
     font-size: 16px;
     text-decoration: none;
     transition: font-size 0.2s, color 0.5s;
+    padding: 10px 20px; /* Espaciado en los enlaces */
 }
 
 #indice a:hover {
     color: darkblue;
     background-color: #f9a825;
     font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
     border-radius: 20px;
 }
 
 /* Principio del codigo para el footer*/
 
 footer {
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco */
+    background-color: #000;
+    color: #fff;
     padding: 10px;
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
     line-height: 1.4;
+    width: 100%;
 }
 
 #info p {
@@ -91,20 +97,22 @@ footer strong {
 /* Fin del codigo del footer
 
 /* Código de modificación de perfil */
-
 #perfil {
     display: flex;
-    align-items: center;  /* Centra los elementos verticalmente */
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center; /* Centrado de perfil */
 }
 
 #perfil img {
-    border-radius: 45px;
+    border-radius: 50%; /* Hacemos la imagen de perfil circular */
     margin-right: 15px;
-    width: 60px;
-    height: auto;
+    width: 50px; /* Tamaño de la imagen de perfil ajustado */
+    height: 50px;
+    transition: transform 0.3s ease; 
 }
-
+#perfil img:hover {
+    transform: scale(1.2); /* Agranda la imagen al 120% */
+}
 #usuario p {
     margin: 0;
     color: white;
@@ -115,6 +123,7 @@ footer strong {
 #usuario strong {
     color: #f9a825;
 }
+
 
 /* Código de modificación de 'lista' */
 #peliculas {
@@ -495,24 +504,191 @@ footer strong {
 /* Fin del código de alquilar (formulario)*/
 
 /*Login y registro*/
-
+/* Mejoras en el Login */
 #login {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con transparencia */
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño máximo del formulario */
+    margin: 0 auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    color: #fff;
+}
 
-    background-color: #f0f0f0;
+#login h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #f9a825; /* Color amarillo para el título */
+}
+
+#login .form {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1.2em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login .form:focus {
+    border-color: #f9a825; /* Cambio de borde al hacer focus */
+    box-shadow: 0 0 5px rgba(249, 168, 37, 0.7); /* Resalta con un sutil efecto de sombra */
+    outline: none;
+}
+
+#login .button {
+    background-color: #f9a825;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login .button:hover {
+    background-color: #f57f17;
+    transform: scale(1.05);
+}
+
+#login .button:active {
+    background-color: #f57f17;
+    transform: scale(1);
+}
+
+#login a {
+    color: #f9a825;
+    font-size: 1em;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+#login a:hover {
+    color: #f57f17;
+}
+
+/* Para el mensaje de error o éxito */
+#login .message {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #f57f17; /* Color de alerta */
+    background-color: #fff3e0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #f57f17;
     text-align: center;
 }
 
 #out {
-    background-color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#out a {
+    font-size: 1.5em;
+    color: #f9a825;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#out a:hover {
+    color: #f57f17;
+}
+
+/* Enlaces de registro */
+/* Mejoras en el Registro */
+#register {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con transparencia */
     text-align: center;
     padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño máximo del formulario */
+    margin: 0 auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    color: #fff;
 }
-#out a{
-font-size: large;
 
+#register h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #f9a825; /* Color amarillo para el título */
 }
-#register{
-    background-color: #f0f0f0;
+
+#register .form {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1.2em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#register .form:focus {
+    border-color: #f9a825; /* Cambio de borde al hacer focus */
+    box-shadow: 0 0 5px rgba(249, 168, 37, 0.7); /* Resalta con un sutil efecto de sombra */
+    outline: none;
+}
+
+#register .button {
+    background-color: #f9a825;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#register .button:hover {
+    background-color: #f57f17;
+    transform: scale(1.05);
+}
+
+#register .button:active {
+    background-color: #f57f17;
+    transform: scale(1);
+}
+
+#register a {
+    color: #f9a825;
+    font-size: 1em;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+#register a:hover {
+    color: #f57f17;
+}
+
+/* Para el mensaje de error o éxito */
+#register .message {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #f57f17; /* Color de alerta */
+    background-color: #fff3e0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #f57f17;
     text-align: center;
-
 }
+
