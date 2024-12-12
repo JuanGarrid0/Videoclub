@@ -17,8 +17,9 @@
             <a id = "perfil" href ="{% url 'login' %}">
                 <img src="{% static 'movies/images/perfil.png' %}" alt="perfil"  style="width:60px;height:auto;">
                 <div id="usuario">
+                    <p><strong>Usuario:</strong></p>
                     {% if user.is_authenticated %}
-                        <p><strong>Usuario:</strong> {{ user }}</p>
+                        <p> {{ user }}</p>
                     {% endif %}
                 </div>
             </a>
