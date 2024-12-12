@@ -4,9 +4,11 @@
 {% block body %}
 
     {% if user.is_authenticated %}
+    <script src="{% static 'movies/scripts/peliculas.js' %}"></script>
+
             <div id="out">
                 <h2>Cerrar sesión</h2>
-                    <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                    <a class="nav-link" href="{% url 'logout' %}" onclick="loggedOut()">Cerrar sesión</a>
             </div>
     {% else %}
         <div id="login">
@@ -14,7 +16,7 @@
             {% if message %}
                 {{message}}
             {% endif %}
-            <form action="{% url 'login' %}" method="post">
+            <form action="{% url 'login' %}" method="post" onsubmit="loggedIn()">
                 {% csrf_token %}
                 <div>
                     <input autofocus class="form" type="text" name="username" placeholder="USUARIO">

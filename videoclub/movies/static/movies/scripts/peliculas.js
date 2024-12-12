@@ -27,3 +27,18 @@ function buscarPelicula() {
         })
         .catch(error => console.error("Error al buscar películas:", error));
 }
+
+function loggedIn(){
+ 
+ alert(`Hola, has iniciado sesión`);
+}
+
+function loggedOut(){
+    alert(`Hola, has cerrado la sesión `);
+}
+ 
+function registrado(){
+
+    alert(`Muchas gracias por registrarte`);
+
+}
