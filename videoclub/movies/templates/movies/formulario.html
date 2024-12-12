@@ -30,25 +30,31 @@
             <legend><strong>Fecha de recogida</strong></legend>
             <input type="date" id="fecha" name="fecha" required>
         </form>
-
-
-
-
-        <form id = "pel" action="form.php" method="post">
-            <legend><strong>iula</strong></legend>
-            <label for="ciencia">Ciencia</label>
-            <select id="pelicula_ciencia" name="ciencia" multiple size="3">
-                <option>opcion1</option>
-            </select>
-
-            <label for="miedo">miedo</label>
-            <select id="pelicula_miedo" name="miedo" multiple size="5">
-                <option>opcion 1</option>
-                <option>opcion 2</option>
-            </select>
+        
+        <form id="pel" action="form.php" method="post">
+            <legend><strong>Géneros de películas</strong></legend>
+        
+            <div class="form-group">
+                <label for="ciencia">Ciencia</label>
+                <select id="pelicula_ciencia" name="ciencia" multiple size="3">
+                    <option>Opción 1</option>
+                    <option>Opción 2</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="miedo">Miedo</label>
+                <select id="pelicula_miedo" name="miedo" multiple size="5">
+                    <option>Opción 1</option>
+                    <option>Opción 2</option>
+                </select>
+            </div>
         </form>
-            <fieldset>
-                <legend><strong>Mascotas</strong></legend>
+        
+        <fieldset>
+            <legend><strong>Mascotas</strong></legend>
+        
+            <div class="form-group">
                 <label for="perros">Perros:</label>
                 <select id="perros" name="perros">
                     <option disabled selected>Selecciona una opción</option>
@@ -56,10 +62,13 @@
                     <option>Bulldog</option>
                     <option>Caniche</option>
                     <option>Chihuahua</option>
-                    <option>Dalmata</option>
+                    <option>Dálmata</option>
                     <option>Rottweiler</option>
                     <option>Labrador</option>
                 </select>
+            </div>
+        
+            <div class="form-group">
                 <label for="gatos">Gatos:</label>
                 <select id="gatos" name="gatos">
                     <option disabled selected>Selecciona una opción</option>
@@ -67,41 +76,49 @@
                     <option>Persa</option>
                     <option>Siames</option>
                 </select>
-
-                <div class="conejo-cobaya">
-                    <label for="conejos">Conejo</label>
-                    <input type="checkbox" name="conejo" value="o">
-
-                    <label for="cobayas">Cobaya</label>
-                    <input type="checkbox" name="cobaya" value="e">
-                </div>
-
+            </div>
+        
+            <div class="form-group conejo-cobaya">
+                <label for="conejos">Conejo</label>
+                <input type="checkbox" name="conejo" value="o">
+        
+                <label for="cobayas">Cobaya</label>
+                <input type="checkbox" name="cobaya" value="e">
+            </div>
+        
+            <div class="form-group">
                 <label for="aves">Aves:</label>
                 <select id="aves" name="aves">
                     <option disabled selected>Selecciona una opción</option>
                     <option>Loro</option>
                     <option>Periquito</option>
                 </select>
-
+            </div>
+        
+            <div class="form-group">
                 <label for="acuaticos">Acuáticos:</label>
                 <select id="acuaticos" name="acuaticos">
                     <option disabled selected>Selecciona una opción</option>
                     <option>Pez</option>
                     <option>Tortuga</option>
                 </select>
-            </fieldset>
-            <fieldset>
-                <label for="aves">Comentario o recomendación sobre nuestros productos del catálogo:</label>
-                <br>
-                <textarea name="textarea" rows="10" cols="50"></textarea>
-            </fieldset>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <label for="comentarios">Comentario o recomendación sobre nuestros productos del catálogo:</label>
+            <br>
+            <textarea id="comentarios" name="textarea" rows="5" cols="50"></textarea>
+        </fieldset>
+        
+        <div class="form-group">
             <label for="aceptar">Acepto las condiciones</label>
             <input id="aceptar" type="checkbox" name="aceptar" value="a">
-            <br>
-
-            <br>
+        </div>
+        
+        <div class="form-group">
             <input id="enviar" type="submit" value="Enviar">
-        </form>
-    </div>
+        </div>
+        
    
 {%endblock%}
