@@ -16,7 +16,7 @@
                 
                 <input class="form" type="text" name="nombre" placeholder="{{ movie.nombre }}" value="{{ movie.nombre }}">
         
-                <input autofocus class="form" type="text" name="genero" placeholder="{{ movie.genero }}" value="{{ movie.genero }}">
+                <input class="form" type="text" name="genero" placeholder="{{ movie.genero }}" value="{{ movie.genero }}">
         
                 <select name="tipo" id="tipo">
                     <option value="" disabled selected>{{ movie.tipoMovie }}</option>
@@ -29,7 +29,7 @@
         
                 <div id="contenedorDirectores">
                     {% for item in directores %}
-                      <input autofocus class="form" type="text" name="directores__{{ forloop.counter }}" placeholder="{{item.nombre}} {{item.apellido}}">
+                      <input  class="form" type="text" name="directores__{{ forloop.counter }}" placeholder="{{item.nombre}} {{item.apellido}}">
                     {% endfor %}
                 </div>
         
