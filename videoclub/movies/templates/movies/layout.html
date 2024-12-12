@@ -44,18 +44,25 @@
             </nav>
         </div>
         </header>
-        {% block body %}
-        {% endblock %}
-
-        <footer>
-            <div id="info">
-                <p><strong>Dirección:</strong> Calle 123, Ciudad de Películas, CP 45678</p>
-                <p><strong>Email:</strong> moviestore@gmail.com</p>
-                <p><strong>Teléfono:</strong> +34 123 456 789</p>
-                <p>&copy; 2024 MovieStore. Todos los derechos reservados.</p>
+        <div class="wrapper">
+            <!-- Contenido principal -->
+            <div class="content">
+                {% block body %}
+                <!-- Aquí se insertará el contenido específico de cada página -->
+                {% endblock %}
             </div>
-        </footer>
-
+    
+            <footer>
+                <div id="info">
+                    <p><strong>Dirección:</strong> Calle 123, Ciudad de Películas, CP 45678</p>
+                    <p><strong>Email:</strong> moviestore@gmail.com</p>
+                    <p><strong>Teléfono:</strong> +34 123 456 789</p>
+                    <p>&copy; 2024 MovieStore. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+        
     </body>
+
 
 </html>
