@@ -19,91 +19,54 @@
             <input type="text" name="email" id="email"><br>
             <br>
         </form>
-        <form id = "pelicula" action = "form.php" method = "post">
-            <legend><strong>Seleccionar pelicula</strong></legend>
-            <input type="text" id="barraBusquedaPeliculas" placeholder="Buscar película..."></input>
-            <div id = "resultado">
-
-            </div>
-        </form>
+    
         <form action="/submit" method="post">
             <legend><strong>Fecha de recogida</strong></legend>
             <input type="date" id="fecha" name="fecha" required>
         </form>
-        
-        <form id="pel" action="form.php" method="post">
-            <legend><strong>Géneros de películas</strong></legend>
-        
-            <div class="form-group">
-                <label for="ciencia">Ciencia</label>
-                <select id="pelicula_ciencia" name="ciencia" multiple size="3">
-                    <option>Opción 1</option>
-                    <option>Opción 2</option>
-                </select>
-            </div>
-        
-            <div class="form-group">
-                <label for="miedo">Miedo</label>
-                <select id="pelicula_miedo" name="miedo" multiple size="5">
-                    <option>Opción 1</option>
-                    <option>Opción 2</option>
-                </select>
-            </div>
+        <!-- Si seleccionas una peli las otras ya no se pueden seleccionar -->
+        <form>
+            <legend><strong>Peliculas por genero</strong></legend>
+            <label for="perros">Accion</label>
+            <select id="perros" name="perros">
+                <option disabled selected>Selecciona una opción</option>
+                <option value="none">Anular selección</option>
+                <option>Pulp Fiction</option>
+                <option>Ready Player One</option>
+            </select>
+            <label for="gatos">Gatos:</label>
+            <select id="gatos" name="gatos">
+                <option disabled selected>Selecciona una opción</option>
+                <option value="none">Anular selección</option>
+                <option>Común</option>
+                <option>Persa</option>
+                <option>Siames</option>
+            </select>
         </form>
+        <!-- Javascript con comentarios para entender lo que hace el codigo -->
+        <script>
+            const selects = document.querySelectorAll('select');
         
-        <fieldset>
-            <legend><strong>Mascotas</strong></legend>
-        
-            <div class="form-group">
-                <label for="perros">Perros:</label>
-                <select id="perros" name="perros">
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Border</option>
-                    <option>Bulldog</option>
-                    <option>Caniche</option>
-                    <option>Chihuahua</option>
-                    <option>Dálmata</option>
-                    <option>Rottweiler</option>
-                    <option>Labrador</option>
-                </select>
-            </div>
-        
-            <div class="form-group">
-                <label for="gatos">Gatos:</label>
-                <select id="gatos" name="gatos">
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Común</option>
-                    <option>Persa</option>
-                    <option>Siames</option>
-                </select>
-            </div>
-        
-            <div class="form-group conejo-cobaya">
-                <label for="conejos">Conejo</label>
-                <input type="checkbox" name="conejo" value="o">
-        
-                <label for="cobayas">Cobaya</label>
-                <input type="checkbox" name="cobaya" value="e">
-            </div>
-        
-            <div class="form-group">
-                <label for="aves">Aves:</label>
-                <select id="aves" name="aves">
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Loro</option>
-                    <option>Periquito</option>
-                </select>
-            </div>
-        
-            <div class="form-group">
-                <label for="acuaticos">Acuáticos:</label>
-                <select id="acuaticos" name="acuaticos">
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Pez</option>
-                    <option>Tortuga</option>
-                </select>
-            </div>
-        </fieldset>
+            selects.forEach(select => {
+                select.addEventListener('change', () => {
+                    // Si el usuario selecciona "Anular selección"
+                    if (select.value === "none") {
+                        // Reactivar todos los selects
+                        selects.forEach(s => {
+                            s.disabled = false;
+                            s.selectedIndex = 0; // Restablece la selección
+                        });
+                    } else if (select.selectedIndex > 1) {
+                        // Si selecciona una opción válida diferente a "Selecciona una opción" o "Anular selección"
+                        selects.forEach(s => {
+                            if (s !== select) {
+                                s.disabled = true;
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
         
         <fieldset>
             <label for="comentarios">Comentario o recomendación sobre nuestros productos del catálogo:</label>
