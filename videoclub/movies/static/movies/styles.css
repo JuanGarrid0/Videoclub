@@ -402,23 +402,6 @@ fieldset legend {
     margin-bottom: 10px;
 }
 
-.conejo-cobaya {
-    color: white;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-.conejo-cobaya label {
-    font-size: 1em;
-    color: #f9a825; /* Dorado en las etiquetas */
-}
-.conejo-cobaya input[type="checkbox"] {
-    margin-right: 10px;
-}
-#perros, #gatos, .conejo-cobaya, #aves, #acuaticos {
-    margin-bottom: 15px;
-}
 input[type="checkbox"]:hover {
     transform: scale(1.2);
     cursor: pointer;
@@ -578,9 +561,7 @@ form legend {
 form {
     margin: 20px;
 }
-.form-group {
-    margin-bottom: 20px;
-}
+
 #formulario form {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
@@ -606,6 +587,10 @@ form {
     border-radius: 15px;
     width: 200px;
     height: 200px;
+}
+
+#formulario textarea {
+    background-color: white;
 }
 
 /* Fin del código de alquilar (formulario)*/
