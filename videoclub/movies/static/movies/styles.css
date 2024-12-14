@@ -353,15 +353,6 @@ select option {
 select option:hover {
     background-color: #f9a825; /* Fondo dorado en hover */
 }
-textarea {
-    resize: vertical;
-    min-height: 120px;
-    padding: 12px;
-    background-color: #222;
-    color: white;
-    border: 2px solid #f9a825;
-    border-radius: 5px;
-}
 
 input[type="checkbox"] {
     margin-right: 10px;
@@ -582,6 +573,10 @@ form {
     margin-bottom: 5px;
 }
 
+#formulario input, select {
+    width: 300px;
+}
+
 #resultado {
     background-color: white;
     border-radius: 15px;
@@ -589,8 +584,9 @@ form {
     height: 200px;
 }
 
-#formulario textarea {
-    background-color: white;
+#boton-enviar, #conjunto-aceptar{
+    margin-bottom: 20px;
+    color: white;
 }
 
 /* Fin del código de alquilar (formulario)*/

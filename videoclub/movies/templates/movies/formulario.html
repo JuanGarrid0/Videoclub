@@ -4,22 +4,21 @@
 {% block body %}
     <div id="formulario">
         <h2><strong>Alquila peliculas</strong></h2>
-        <form id = "datos" action="form.php" method="post">
-            <!-- Si esta con su usuario se rellenan automaticamente -->
+        <form id="datos" action="form.php" method="post">
+            <!-- Si está con su usuario se rellenan automáticamente -->
             <legend><strong>Datos del cliente</strong></legend>
-            <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id = "nombre"><br>
-            <br>
 
-            <label for="apellido">Apellido: </label>
-            <input type="text" name="apellido" id = "apellido"><br>
+            <label for="nombre">Usuario: </label>
+            <input type="text" name="nombre" id="nombre" 
+                value="{% if user.is_authenticated %}{{ user }}{% endif %}"><br>
             <br>
 
             <label for="email">Email: </label>
-            <input type="text" name="email" id="email"><br>
+            <input type="text" name="email" id="email" 
+                value="{% if user.is_authenticated %}{{ user.email }}{% endif %}"><br>
             <br>
         </form>
-    
+        <!-- Calendario para fechas -->
         <form action="/submit" method="post">
             <legend><strong>Fecha de recogida</strong></legend>
             <input type="date" id="fecha" name="fecha" required>
@@ -71,39 +70,38 @@
             <textarea id="comentarios" name="textarea" rows="5" cols="50"></textarea>
         </form>
         </form>
-        <!-- Javascript con comentarios para entender lo que hace el codigo -->
-        <script>
-            const selects = document.querySelectorAll('select');
         
-            selects.forEach(select => {
-                select.addEventListener('change', () => {
-                    // Si el usuario selecciona "Anular selección"
-                    if (select.value === "none") {
-                        // Reactivar todos los selects
-                        selects.forEach(s => {
-                            s.disabled = false;
-                            s.selectedIndex = 0; // Restablece la selección
-                        });
-                    } else if (select.selectedIndex > 1) {
-                        // Si selecciona una opción válida diferente a "Selecciona una opción" o "Anular selección"
-                        selects.forEach(s => {
-                            if (s !== select) {
-                                s.disabled = true;
-                            }
-                        });
-                    }
-                });
-            });
-        </script>
-        
-        <div id="form-group">
+        <div id="conjunto-aceptar">
             <label for="aceptar">Acepto las condiciones</label>
             <input id="aceptar" type="checkbox" name="aceptar" value="a">
         </div>
         
-        <div id="form-group">
-            <input id="enviar" type="submit" value="Enviar">
-        </div>
+        <input id="boton-enviar" type="submit" value="Enviar">
         
-   
+    </div>
+        
+    <!-- Javascript con comentarios para entender lo que hace el codigo -->
+    <script>
+        const selects = document.querySelectorAll('select');
+    
+        selects.forEach(select => {
+            select.addEventListener('change', () => {
+                // Si el usuario selecciona "Anular selección"
+                if (select.value === "none") {
+                    // Reactivar todos los selects
+                    selects.forEach(s => {
+                        s.disabled = false;
+                        s.selectedIndex = 0; // Restablece la selección
+                    });
+                } else if (select.selectedIndex > 1) {
+                    // Si selecciona una opción válida diferente a "Selecciona una opción" o "Anular selección"
+                    selects.forEach(s => {
+                        if (s !== select) {
+                            s.disabled = true;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 {%endblock%}
