@@ -42,3 +42,32 @@ function registrado(){
     alert(`Muchas gracias por registrarte`);
 
 }
+function condiciones(){
+    const checkbox = document.getElementById('aceptar');
+    const botonEnviar = document.getElementById('boton-enviar');
+    
+    if (checkbox.checked) {
+        botonEnviar.hidden = false;  // Si el checkbox está marcado, habilita el botón
+    } else {
+        botonEnviar.hidden = true;  
+    }
+
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            botonEnviar.hidden = false;  
+        } else {
+            botonEnviar.hidden = true;   
+        }
+    });
+}
+
+window.onload = function(){
+
+    condiciones();
+}
+
+/*const usuario = document.getElementById("nombre").value; 
+const correo = document.getElementById("email").value; 
+const fecha = document.getElementById("fecha").value; 
+const comentarios = document.getElementById("comentarios").value; 
+const condiciones = document.getElementsByName("aceptar").value;*/
