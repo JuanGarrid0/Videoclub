@@ -372,7 +372,7 @@ input[type="submit"]:hover {
 }
 
 fieldset {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para la sección */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro para la sección */
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 30px;
@@ -461,8 +461,18 @@ input[type="checkbox"]:hover {
     justify-content: center;
 }
 
+#informacion strong {
+    color:#f9a825;
+}
+
+#informacion fieldset {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin-top:10px;
+    border: 2px solid #f9a825;
+}
+
 #informacion p {
-    margin: 10px 0;
     font-size: 20px;
     line-height: 2;
 }
@@ -470,6 +480,10 @@ input[type="checkbox"]:hover {
  color:black;
  text-align: center;
  padding: 50px;
+}
+
+#botonesEditar{
+    display: flex;
 }
 
 /* Fin del código de detalles de película */
@@ -543,17 +557,16 @@ input[type="checkbox"]:hover {
 
 #formulario legend{
     color: #f9a825;
-}
-form legend {
     font-size: 1.2em;
     margin-bottom: 10px;
+    padding-top: 50px;
 }
 
 form {
     margin: 20px;
 }
 
-#formulario form {
+#formulario fieldset {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 10px;
@@ -561,8 +574,7 @@ form {
     margin-left: 300px;
     margin-right: 300px;
     margin-bottom: 25px;
-    border-style: solid;
-    border-color:#f9a825;
+    border: 2px solid #f9a825;;
     color: white;
 }
 
