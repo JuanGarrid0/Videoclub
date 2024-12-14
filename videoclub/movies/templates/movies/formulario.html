@@ -2,31 +2,36 @@
 
 
 {% block body %}
-    <div id="formulario">
+    <div id="formulario" >
         <h2><strong>Alquila peliculas</strong></h2>
-        <form id="datos" action="{% url 'reserva'  %}" method="post">
+        <form id="datos" action="{% url 'reserva'  %}" method="post" style="background-color:black">
             {% csrf_token %}
+            <fieldset>
 
             <!-- Si está con su usuario se rellenan automáticamente -->
-            <legend><strong>Datos del cliente</strong></legend>
+                <legend><strong>Datos del cliente</strong></legend>
+                <label for="nombre">Usuario: </label>
+                <input type="text" name="nombre" id="nombre" 
+                    value="{% if user.is_authenticated %}{{ user }}{% endif %}"><br>
+                <br>
 
-            <label for="nombre">Usuario: </label>
-            <input type="text" name="nombre" id="nombre" 
-                value="{% if user.is_authenticated %}{{ user }}{% endif %}"><br>
-            <br>
+                <label for="email">Email: </label>
+                <input type="text" name="email" id="email" 
+                    value="{% if user.is_authenticated %}{{ user.email }}{% endif %}"><br>
+                <br>
+            </fieldset>
 
-            <label for="email">Email: </label>
-            <input type="text" name="email" id="email" 
-                value="{% if user.is_authenticated %}{{ user.email }}{% endif %}"><br>
-            <br>
    
         <!-- Calendario para fechas -->
-       
+    
+            <fieldset>
             <legend><strong>Fecha de recogida</strong></legend>
             <input type="date" id="fecha" name="fecha" required>
-      
+            </fieldset>
+
         <!-- Si seleccionas una peli las otras ya no se pueden seleccionar -->
-       
+     
+            <fieldset>
             <legend><strong>Peliculas por genero</strong></legend>
             <label for="accion">Accion</label>
             <select id="accion" name="accion">
@@ -64,13 +69,18 @@
                 <option>Fight Club</option>
                 <option>Zodiac</option>
             </select>
+       
+            </fieldset>
         <!-- Comentarios -->
+    
+            <fieldset>
             <legend><strong>Comentario o recomendación</strong></legend>
             <br>
             <textarea id="comentarios" name="comentarios" rows="5" cols="50" ></textarea>
-        
+            </fieldset>
+
         <div id="conjunto-aceptar" >
-            <label for="aceptar" style="color:black">Acepto las condiciones</label>
+            <label for="aceptar" >Acepto las condiciones</label>
             <input id="aceptar" type="checkbox" name="aceptar" value="a">
 
         </div><br>
