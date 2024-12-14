@@ -4,7 +4,9 @@
 {% block body %}
     <div id="formulario">
         <h2><strong>Alquila peliculas</strong></h2>
-        <form id="datos" action="form.php" method="post">
+        <form id="datos" action="{% url 'reserva'  %}" method="post">
+            {% csrf_token %}
+
             <!-- Si está con su usuario se rellenan automáticamente -->
             <legend><strong>Datos del cliente</strong></legend>
 
@@ -17,14 +19,14 @@
             <input type="text" name="email" id="email" 
                 value="{% if user.is_authenticated %}{{ user.email }}{% endif %}"><br>
             <br>
-        </form>
+   
         <!-- Calendario para fechas -->
-        <form action="/submit" method="post">
+       
             <legend><strong>Fecha de recogida</strong></legend>
             <input type="date" id="fecha" name="fecha" required>
-        </form>
+      
         <!-- Si seleccionas una peli las otras ya no se pueden seleccionar -->
-        <form>
+       
             <legend><strong>Peliculas por genero</strong></legend>
             <label for="accion">Accion</label>
             <select id="accion" name="accion">
@@ -62,14 +64,10 @@
                 <option>Fight Club</option>
                 <option>Zodiac</option>
             </select>
-        </form>
         <!-- Comentarios -->
-        <form>
             <legend><strong>Comentario o recomendación</strong></legend>
             <br>
-            <textarea id="comentarios" name="textarea" rows="5" cols="50" name="comentarios"></textarea>
-        </form>
-        </form>
+            <textarea id="comentarios" name="comentarios" rows="5" cols="50" ></textarea>
         
         <div id="conjunto-aceptar" >
             <label for="aceptar" style="color:black">Acepto las condiciones</label>
@@ -78,7 +76,8 @@
         </div><br>
         
         <input id="boton-enviar" type="submit" value="Enviar" >
-        
+    </form>
+
     </div>
         
     <!-- Javascript con comentarios para entender lo que hace el codigo -->

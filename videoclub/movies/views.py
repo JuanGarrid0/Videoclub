@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
-from .models import Director, Movie, User
+from .models import Director, Movie, Reserva, User
 
 # Create your views here.
 #Prueba
@@ -289,3 +289,41 @@ def nameToSet(t):
     lis.append(s)
  print(lis)
  return lis
+
+def reserva(request):
+    usuario = request.POST.get("nombre")
+    correo = request.POST.get("email")
+    fecha = request.POST.get("fecha")
+    pelisAcc = request.POST.get("accion")
+    pelisH = request.POST.get("historica")
+    pelisA = request.POST.get("animacion")
+    pelisD = request.POST.get("drama")
+    pelisT = request.POST.get("thriller")
+
+
+    coments = request.POST.get("comentarios","")
+    reserva= Reserva(
+        usuario=usuario,
+        correo=correo,
+        fecha=fecha,
+        comentarios=coments 
+    )
+    reserva.save()
+
+    pelis=[]
+    p=[]
+    a=[pelisA,pelisH,pelisD,pelisT,pelisAcc]
+    pelis.extend(a)
+    for genero in pelis :
+            if genero!= "" and genero is not None:
+                try:
+                    movie = Movie.objects.get(nombre=genero)  # Adjust the field accordingly
+                    p.append(movie)
+                except Movie.DoesNotExist:
+                 raise Http404("error")
+    reserva.peliculas.set( p)
+    reserva.save()
+
+
+    return redirect(reverse("index"))
+

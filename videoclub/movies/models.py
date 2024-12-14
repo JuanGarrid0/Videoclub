@@ -21,4 +21,4 @@ class Reserva(models.Model):
     correo = models.EmailField(max_length=200)
     fecha = models.DateField()
     peliculas = models.ManyToManyField(Movie,null=True, blank=True )
-    comentarios = models.CharField(max_length=500)
+    comentarios = models.TextField( null=True, blank=True)

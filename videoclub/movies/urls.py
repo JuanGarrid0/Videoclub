@@ -17,4 +17,6 @@ urlpatterns = [
     path("updatePage/<str:peli>", views.updatePage, name="updatePage"),
     path("update/<int:peli>", views.update, name="update"),
     path("BuscarPeliculas/", views.buscarPeliculas, name="BuscarPeliculas"),
+    path("reserva/", views.reserva, name="reserva"),
+
 ]
