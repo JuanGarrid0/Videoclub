@@ -9,9 +9,6 @@
             <div id="out">
                 <h2>Cerrar sesión</h2>
                     <a class="nav-link" href="{% url 'logout' %}" onclick="loggedOut()">Cerrar sesión</a>
-                    {% if user_logged_in%}
-                            onclick="loggedOut()"
-                    {% endif %}
             </div>
     {% else %}
         <div id="login">
@@ -19,7 +16,8 @@
             {% if message %}
                 {{message}}
             {% endif %}
-            <form action="{% url 'login' %}" method="post" onsubmit="loggedIn()">
+            <form action="{% url 'login' %}" method="post" >
+               
                 {% csrf_token %}
                 <div>
                     <input autofocus class="form" type="text" name="username" placeholder="USUARIO">
