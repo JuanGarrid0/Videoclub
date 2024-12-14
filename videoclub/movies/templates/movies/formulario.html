@@ -4,7 +4,7 @@
 {% block body %}
     <div id="formulario" >
         <h2><strong>Alquila peliculas</strong></h2>
-        <form id="datos" action="{% url 'reserva'  %}" method="post" style="background-color:black">
+        <form id="datos" action="{% url 'reserva'  %}" method="post">
             {% csrf_token %}
             <fieldset>
 
@@ -20,7 +20,6 @@
                     value="{% if user.is_authenticated %}{{ user.email }}{% endif %}"><br>
                 <br>
             </fieldset>
-
    
         <!-- Calendario para fechas -->
     
@@ -69,7 +68,6 @@
                 <option>Fight Club</option>
                 <option>Zodiac</option>
             </select>
-       
             </fieldset>
         <!-- Comentarios -->
     
@@ -78,16 +76,17 @@
             <br>
             <textarea id="comentarios" name="comentarios" rows="5" cols="50" ></textarea>
             </fieldset>
-
-        <div id="conjunto-aceptar" >
-            <label for="aceptar" >Acepto las condiciones</label>
-            <input id="aceptar" type="checkbox" name="aceptar" value="a">
-
-        </div><br>
-        
-        <input id="boton-enviar" type="submit" value="Enviar" >
-    </form>
-
+            
+            <fieldset>
+                <div id="conjunto-aceptar" >
+                    <label for="aceptar" style="color: white;">Acepto las condiciones</label>
+                    <input id="aceptar" type="checkbox" name="aceptar" value="a">
+                </div>
+            </fieldset>
+            <br>
+            
+            <input id="boton-enviar" type="submit" value="Enviar" >
+        </form>
     </div>
         
     <!-- Javascript con comentarios para entender lo que hace el codigo -->
