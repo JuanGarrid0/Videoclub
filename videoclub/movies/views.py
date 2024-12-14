@@ -39,7 +39,7 @@ def login_view(request):
         print(user)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return render(request, "movies/index.html", {"user_logged_in": True})
         else:
             return render(request, "movies/login.html", {
                 "message": "Invalid username and/or password."

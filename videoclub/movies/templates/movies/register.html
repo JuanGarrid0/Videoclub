@@ -10,18 +10,18 @@
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
             <div>
-                <input class="form" autofocus type="text" name="username" placeholder="USUARIO">
+                <input class="form" oninput="condicionRegistro()" id="username" autofocus type="text" name="username" placeholder="USUARIO">
             </div>
             <div>
-                <input class="form" type="email" name="email" placeholder="EMAIL">
+                <input class="form"  oninput="condicionRegistro()" id="email" type="email" name="email" placeholder="EMAIL">
             </div>
             <div>
-                <input class="form" type="password" name="password" placeholder="CONTRASEÑA">
+                <input class="form" oninput="condicionRegistro()" id="password" type="password" name="password" placeholder="CONTRASEÑA">
             </div>
             <div>
-                <input class="form" type="password" name="confirmation" placeholder="REPITA CONTRASEÑA">
+                <input class="form" oninput="condicionRegistro()" id="confirmation" type="password" name="confirmation" placeholder="REPITA CONTRASEÑA">
             </div>
-            <input class="button" type="submit" value="REGISTRAR" name="confirm" onclick="registrado()">
+            <input class="button" id="confirm" type="submit" value="REGISTRAR" name="confirm" hidden onclick="registrado()">
         </form>
 
         ¿Ya tiene una cuenta? <a href="{% url 'login' %}">Inicie sesión.</a>

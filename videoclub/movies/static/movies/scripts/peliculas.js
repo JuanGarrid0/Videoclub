@@ -61,13 +61,30 @@ function condiciones(){
     });
 }
 
+function condicionRegistro(){
+    const usuario = document.getElementById('username').value;
+    const correo = document.getElementById('email').value;
+    const pas = document.getElementById('password').value;
+    const pass = document.getElementById('confirmation').value;
+    const boton = document.getElementById('confirm');
+    let relleno = false;
+    
+    if (pas === pass && correo !== "" && usuario !== "" && pas !== "") {
+        relleno = true;
+    }
+    if (relleno) {
+        boton.hidden = false;  
+    } else {
+        boton.hidden = true;  
+    }
+
+    
+
+}
+
 window.onload = function(){
 
     condiciones();
+    condicionRegistro();
 }
 
-/*const usuario = document.getElementById("nombre").value; 
-const correo = document.getElementById("email").value; 
-const fecha = document.getElementById("fecha").value; 
-const comentarios = document.getElementById("comentarios").value; 
-const condiciones = document.getElementsByName("aceptar").value;*/
